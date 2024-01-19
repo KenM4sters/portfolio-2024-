@@ -14,7 +14,7 @@ const navigateTo = url => {
 const router = async () => {
     const routes = [
         {
-            path: "/",
+            path: "/dashboard",
             view: new Dashboard(),
         },
         {
