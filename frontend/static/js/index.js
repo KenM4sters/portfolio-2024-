@@ -1,6 +1,14 @@
 import Dashboard from './views/Dashboard.js'
 import About from './views/About.js';
-import Projects from './views/Projects.js'
+import Projects from './views/Projects.js' 
+import Game from './views/Projects/2DGame.js'
+import GameEngine from './views/Projects/3DGameEngine.js'
+import GravitySimulator from './views/Projects/GravitySimulator.js'
+import PrimeNumbersVisualised from './views/Projects/PrimeNumbersVisualised.js'
+import RestAPI from './views/Projects/RestAPI.js'
+import BlogWebsite from './views/Projects/BlogWebsite.js'
+import FBOParticles from './views/Projects/FBOParticles.js'
+
 import Sketch from './Experience/main.js';
 
 const sketch = new Sketch();
@@ -27,6 +35,42 @@ const router = async () => {
             view: new Projects(),
 
         },
+        {
+            path: "/2DGame",
+            view: new Game(),
+
+        },
+        {
+            path: "/3DGameEngine",
+            view: new GameEngine(),
+
+        },
+        {
+            path: "/GravitySimulator",
+            view: new GravitySimulator(),
+
+        },
+        {
+            path: "/PrimeNumbersVisualised",
+            view: new PrimeNumbersVisualised(),
+
+        },
+        {
+            path: "/RestAPI",
+            view: new RestAPI(),
+
+        },
+        {
+            path: "/BlogWebsite",
+            view: new BlogWebsite(),
+
+        },
+        {
+            path: "/FBOParticles",
+            view: new FBOParticles(),
+
+        },
+
     ];
 
     // Test each route 

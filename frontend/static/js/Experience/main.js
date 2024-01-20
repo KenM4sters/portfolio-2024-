@@ -3,7 +3,7 @@ import * as THREE from 'https://unpkg.com/three@0.142.0/build/three.module.js';
 
 
 /*
-    Haven't quite worked out how to import shader files without a build tool like vite yet,
+    Haven't quite worked out how to import shader files without a build tool like Vite or Webpack yet,
     so the strings are just copy and pasted from the shader files.
  */
 
