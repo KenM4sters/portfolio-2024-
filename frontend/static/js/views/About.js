@@ -10,7 +10,7 @@ export default class About extends AbstractView {
     async getHtml() {
         return `
         <div class="about-wrapper">
-            <div class="info-wrapper"
+            <div class="info-wrapper">
                 <h1 class="about-content about-heading">About me</h1>
                 <p class="about-content about-para">
                     My name is <strong >Samuel Brookman</strong>, and I'm an aspiring software developer  
@@ -36,23 +36,25 @@ export default class About extends AbstractView {
             <div class="skills-wrapper">
                 <div class="skills-box">
                     <h1 class="skills-heading">Skills</h1>
-                    <ul class="skills-list">
-                        <li class="skills-item"> C++ </li>
-                        <li class="skills-item"> C </li>
-                        <li class="skills-item"> Python </li>
-                        <li class="skills-item"> Typescript </li>
-                        <li class="skills-item"> Javascript </li>
-                        <li class="skills-item"> Arm64 ASM </li>
-                        <li class="skills-item"> Rust </li>
-                        <li class="skills-item"> Vulkan </li>
-                        <li class="skills-item"> OpenGL </li>
-                        <li class="skills-item"> Git </li>
-                        <li class="skills-item"> threeJS </li>
-                        <li class="skills-item"> PyTorch </li>
-                        <li class="skills-item"> Linux </li>
-                        <li class="skills-item"> Blender </li>
-                        <li class="skills-item"> Docker </li>
-                    </ul>
+                    <div class="skills-list-wrapper">
+                        <ul class="skills-list">
+                            <li class="skills-item"> C++ </li>
+                            <li class="skills-item"> C </li>
+                            <li class="skills-item"> Python </li>
+                            <li class="skills-item"> Typescript </li>
+                            <li class="skills-item"> Javascript </li>
+                            <li class="skills-item"> Arm64 ASM </li>
+                            <li class="skills-item"> Rust </li>
+                            <li class="skills-item"> Vulkan </li>
+                            <li class="skills-item"> OpenGL </li>
+                            <li class="skills-item"> Git </li>
+                            <li class="skills-item"> threeJS </li>
+                            <li class="skills-item"> PyTorch </li>
+                            <li class="skills-item"> Linux </li>
+                            <li class="skills-item"> Blender </li>
+                            <li class="skills-item"> Docker </li>
+                        </ul>
+                    </div>
                 </div>
             </div>  
         </div>

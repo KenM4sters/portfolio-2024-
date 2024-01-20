@@ -20,7 +20,7 @@ export default class Sketch {
         this.camera = new THREE.PerspectiveCamera(100, 1, 0.1, 2000)
         this.canvas = document.querySelector('canvas.webgl')
         this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas})
-        this.renderer.setClearColor('#505050')
+        this.renderer.setClearColor('#101010')
         // this.controls = new OrbitControls(this.camera, this.canvas)
         // this.controls.enableDamping = true
         this.width = 128
