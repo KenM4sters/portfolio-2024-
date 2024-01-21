@@ -7,29 +7,29 @@ export default class Time extends EventEmitter
         super()
 
         // Setup
-        this.start = Date.now()
-        this.current = this.start
-        this.elapsed = 0
-        this.delta = 16
+        this.start = Date.now();
+        this.current = this.start;
+        this.elapsed = 0;
+        this.delta = 16;
 
         window.requestAnimationFrame(() =>
         {
-            this.tick()
+            this.tick();
         })
     }
 
     tick()
     {
-        const currentTime = Date.now()
-        this.delta = currentTime - this.current
-        this.current = currentTime
-        this.elapsed = this.current - this.start
+        const currentTime = Date.now();
+        this.delta = currentTime - this.current;
+        this.current = currentTime;
+        this.elapsed = this.current - this.start;
 
-        this.trigger('tick')
+        this.trigger('tick');
 
         window.requestAnimationFrame(() =>
         {
-            this.tick()
+            this.tick();
         })
     }
 }

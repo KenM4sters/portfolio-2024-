@@ -10,8 +10,7 @@ import BlogWebsite from './views/Projects/BlogWebsite.js'
 import FBOParticles from './views/Projects/FBOParticles.js'
 
 import Experience from './Experience/Experience.js'
-
-const experience = new Experience(document.querySelector('.webgl'))
+import Preloader from './views/Preloader.js';
 
 const navigateTo = url => {
     history.pushState(null, null, url);
@@ -21,6 +20,10 @@ const navigateTo = url => {
 
 const router = async () => {
     const routes = [
+        {
+            path: "/",
+            view: new Preloader()
+        },
         {
             path: "/dashboard",
             view: new Dashboard(),
@@ -107,3 +110,5 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     router();
 })
+
+const experience = new Experience(document.querySelector('.webgl'))

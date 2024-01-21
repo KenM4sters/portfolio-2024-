@@ -8,16 +8,16 @@ export default class Renderer
 {
     constructor()
     {
-        this.experience = new Experience()
-        this.canvas = this.experience.canvas
-        this.sizes = this.experience.sizes
-        this.scene = this.experience.scene
-        this.camera = this.experience.camera
-        this.postProcess = {}
+        this.experience = new Experience();
+        this.canvas = this.experience.canvas;
+        this.sizes = this.experience.sizes;
+        this.scene = this.experience.scene;
+        this.camera = this.experience.camera;
+        this.postProcess = {};
         this.usePostprocess = false;
 
-        this.setInstance()
-        this.setPostProcess()
+        this.setInstance();
+        this.setPostProcess();
     }
 
     setInstance()
@@ -35,18 +35,18 @@ export default class Renderer
             physicallyCorrectLights: true,
         })
 
-        this.instance.outputColorSpace = THREE.SRGBColorSpace
-        this.instance.setSize(this.sizes.width, this.sizes.height)
-        this.instance.setPixelRatio(Math.min(this.sizes.pixelRatio, 2))
+        this.instance.outputColorSpace = THREE.SRGBColorSpace;
+        this.instance.setSize(this.sizes.width, this.sizes.height);
+        this.instance.setPixelRatio(Math.min(this.sizes.pixelRatio, 2));
 
-        this.instance.setClearColor(this.clearColor, 1)
-        this.instance.setSize(this.sizes.width, this.sizes.height)
+        this.instance.setClearColor(this.clearColor, 1);
+        this.instance.setSize(this.sizes.width, this.sizes.height);
     }
 
     resize()
     {
-        this.instance.setSize(this.sizes.width, this.sizes.height)
-        this.instance.setPixelRatio(this.sizes.pixelRatio)
+        this.instance.setSize(this.sizes.width, this.sizes.height);
+        this.instance.setPixelRatio(this.sizes.pixelRatio);
     }
 
     setPostProcess() {
@@ -55,7 +55,7 @@ export default class Renderer
          * Passes
          */
         // Render pass
-        this.postProcess.renderPass = new RenderPass(this.scene, this.camera.instance)
+        this.postProcess.renderPass = new RenderPass(this.scene, this.camera.instance);
 
         // Bloom pass
         this.postProcess.unrealBloomPass = new UnrealBloomPass(
@@ -63,15 +63,15 @@ export default class Renderer
             2.2,
             1.0,
             0
-        )
-        this.postProcess.unrealBloomPass.enabled = true
+        );
+        this.postProcess.unrealBloomPass.enabled = true;
 
-        this.postProcess.unrealBloomPass.tintColor = {}
-        this.postProcess.unrealBloomPass.tintColor.value = '#000000'
-        this.postProcess.unrealBloomPass.tintColor.instance = new THREE.Color(this.postProcess.unrealBloomPass.tintColor.value)
+        this.postProcess.unrealBloomPass.tintColor = {};
+        this.postProcess.unrealBloomPass.tintColor.value = '#000000';
+        this.postProcess.unrealBloomPass.tintColor.instance = new THREE.Color(this.postProcess.unrealBloomPass.tintColor.value);
 
-        this.postProcess.unrealBloomPass.compositeMaterial.uniforms.uTintColor = { value: this.postProcess.unrealBloomPass.tintColor.instance }
-        this.postProcess.unrealBloomPass.compositeMaterial.uniforms.uTintStrength = { value: 0.15 }
+        this.postProcess.unrealBloomPass.compositeMaterial.uniforms.uTintColor = { value: this.postProcess.unrealBloomPass.tintColor.instance };
+        this.postProcess.unrealBloomPass.compositeMaterial.uniforms.uTintStrength = { value: 0.15 };
         this.postProcess.unrealBloomPass.compositeMaterial.fragmentShader = `
 varying vec2 vUv;
 uniform sampler2D blurTexture1;
@@ -118,13 +118,13 @@ void main() {
                 colorSpace: THREE.SRGBColorSpace,
                 samples: this.instance.getPixelRatio() === 1 ? 2 : 0
             }
-        )
-        this.postProcess.composer = new EffectComposer(this.instance, this.renderTarget)
-        this.postProcess.composer.setSize(this.sizes.width, this.sizes.height)
-        this.postProcess.composer.setPixelRatio(this.sizes.pixelRatio)
+        );
+        this.postProcess.composer = new EffectComposer(this.instance, this.renderTarget);
+        this.postProcess.composer.setSize(this.sizes.width, this.sizes.height);
+        this.postProcess.composer.setPixelRatio(this.sizes.pixelRatio);
 
-        this.postProcess.composer.addPass(this.postProcess.renderPass)
-        this.postProcess.composer.addPass(this.postProcess.unrealBloomPass)
+        this.postProcess.composer.addPass(this.postProcess.renderPass);
+        this.postProcess.composer.addPass(this.postProcess.unrealBloomPass);
     }
 
     update()

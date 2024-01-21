@@ -19,60 +19,59 @@ export default class Experience
         // Singleton
         if(instance)
         {
-            return instance
+            return instance;
         }
-        instance = this
+        instance = this;
         
         // Global access
-        window.experience = this
+        window.experience = this;
 
         // Options
-        this.canvas = _canvas
+        this.canvas = _canvas;
 
         // Setup
-        this.debug = new Debug()
-        this.sizes = new Sizes()
-        this.time = new Time()
-        this.scene = new THREE.Scene()
-        this.resources = new Resources(sources)
-        this.camera = new Camera()
-        this.renderer = new Renderer()
-        this.world = new World()
-        this.listener = new EventListener()
+        this.debug = new Debug();
+        this.sizes = new Sizes();
+        this.time = new Time();
+        this.scene = new THREE.Scene();
+        this.resources = new Resources(sources);
+        this.camera = new Camera();
+        this.renderer = new Renderer();
+        this.world = new World();
+        this.listener = new EventListener();
 
 
         // Resize event
         this.sizes.on('resize', () =>
         {
-            this.resize()
+            this.resize();
         })
 
         // Time tick event
         this.resources.on('ready', () => {
-
-            this.time.on('tick', () =>
-            {
-                this.update()
+                this.time.on('tick', () =>
+                {
+                    this.update();
+                })
             })
-        })
     }
 
     resize()
     {
-        this.camera.resize()
-        this.renderer.resize()
+        this.camera.resize();
+        this.renderer.resize();
     }
 
     update()
     {
         // this.camera.update()
-        this.renderer.update()
-        this.world.update()
+        this.renderer.update();
+        this.world.update();
     }
 
     destroy() {
-        this.sizes.off('resize')
-        this.time.off('tick')
+        this.sizes.off('resize');
+        this.time.off('tick');
 
         // Traverse the whole scene
         this.scene.traverse((child) =>
@@ -80,26 +79,26 @@ export default class Experience
             // Test if it's a mesh
             if(child instanceof THREE.Mesh)
             {
-                child.geometry.dispose()
+                child.geometry.dispose();
 
                 // Loop through the material properties
                 for(const key in child.material)
                 {
-                    const value = child.material[key]
+                    const value = child.material[key];
 
                     // Test if there is a dispose function
                     if(value && typeof value.dispose === 'function')
                     {
-                        value.dispose()
+                        value.dispose();
                     }
                 }
             }
         })
 
         // this.camera.controls.dispose() 
-        this.renderer.instance.dispose()
+        this.renderer.instance.dispose();
 
         if(this.debug.active)
-            this.debug.ui.destroy()
+            this.debug.ui.destroy();
     }
 }

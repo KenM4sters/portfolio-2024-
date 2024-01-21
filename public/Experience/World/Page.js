@@ -3,41 +3,32 @@ import Experience from '../Experience.js'
 
 export default class Page {
     constructor() {
-        this.experience = new Experience()
-        this.debug = this.experience.debug
-        this.scene = this.experience.scene
-        this.time = this.experience.time
-        this.camera = this.experience.camera.instance
-        this.renderer = this.experience.renderer.instance
-        this.sizes = this.experience.sizes
-        this.width = 128
-        this.height = 128
-        this.size = 128
+        this.experience = new Experience();
+        this.debug = this.experience.debug;
+        this.scene = this.experience.scene;
+        this.time = this.experience.time;
+        this.camera = this.experience.camera.instance;
+        this.camera.position.set(0, 0, 1000);
+        this.renderer = this.experience.renderer.instance;
+        this.sizes = this.experience.sizes;
+        this.width = 128;
+        this.height = 128;
+        this.size = 128;
 
-        this.cursor = {}
-        this.cursor.x = this.sizes.width / 2
-        this.cursor.y = this.sizes.height / 2
+        this.cursor = {};
+        this.cursor.x = this.sizes.width / 2;
+        this.cursor.y = this.sizes.height / 2;
 
-        this.setFBO()
-        this.MouseListener()
-        // this.testMesh()
+        this.setFBO();
+        this.MouseListener();
     }
 
-    
-    testMesh() {
-        var sphere = new THREE.Mesh(
-            new THREE.SphereGeometry(5, 32, 32),
-            new THREE.MeshBasicMaterial({color: 0xff0000, wireframe: true})
-        )
 
-        this.scene.add(sphere)
-
-    }
 
     MouseListener() {
         window.addEventListener('mousemove', (e) => {
-            this.cursor.x = e.clientX - (this.sizes.width / 2)
-            this.cursor.y = -(e.clientY - (this.sizes.height / 2))
+            this.cursor.x = e.clientX - (this.sizes.width / 2);
+            this.cursor.y = -(e.clientY - (this.sizes.height / 2));
 
             this.camera.rotation.set(
                 (this.cursor.y * Math.PI / 180) / 150, 
@@ -89,7 +80,7 @@ export default class Page {
         this.cubeTexture = new THREE.DataTexture( cubeData, this.width, this.height, THREE.RGBAFormat, THREE.FloatType );
         this.cubeTexture.needsUpdate = true;
 
-        var sphereData = getSphere(this.width * this.height, this.size)
+        var sphereData = getSphere(this.width * this.height, this.size);
         this.sphereTexture = new THREE.DataTexture( sphereData, this.width, this.height, THREE.RGBAFormat, THREE.FloatType);
         this.sphereTexture.needsUpdate = true;
 
@@ -187,8 +178,8 @@ export default class Page {
         // }
 
         //3 this.RenderTargetTexture1 setup
-        this.fboScene = new THREE.Scene()
-        this.fboOrthoCamera = new THREE.OrthographicCamera(-1,1,1,-1,1/Math.pow( 2, 53 ),1)
+        this.fboScene = new THREE.Scene();
+        this.fboOrthoCamera = new THREE.OrthographicCamera(-1,1,1,-1,1/Math.pow( 2, 53 ),1);
 
         //4 create a target texture
         var options = {
@@ -199,16 +190,16 @@ export default class Page {
         };
 
         // Two render targets
-        this.RenderTargetTexture1 = new THREE.WebGLRenderTarget( this.width, this.height, options)
-        this.RenderTargetTexture2 = new THREE.WebGLRenderTarget( this.width, this.height, options)
+        this.RenderTargetTexture1 = new THREE.WebGLRenderTarget( this.width, this.height, options);
+        this.RenderTargetTexture2 = new THREE.WebGLRenderTarget( this.width, this.height, options);
 
 
         //5 the simulation:
         //create a bi-unit quadrilateral and uses the simulation material to update the Float Texture
         var geom = new THREE.BufferGeometry()
-        geom.setAttribute( 'position', new THREE.BufferAttribute( new Float32Array([   -1,-1,0, 1,-1,0, 1,1,0, -1,-1, 0, 1, 1, 0, -1,1,0 ]), 3 ) )
-        geom.setAttribute( 'uv', new THREE.BufferAttribute( new Float32Array([   0,1, 1,1, 1,0,     0,1, 1,0, 0,0 ]), 2 ) )
-        this.fboScene.add( new THREE.Mesh( geom, this.simulationShader ) )
+        geom.setAttribute( 'position', new THREE.BufferAttribute( new Float32Array([   -1,-1,0, 1,-1,0, 1,1,0, -1,-1, 0, 1, 1, 0, -1,1,0 ]), 3 ) );
+        geom.setAttribute( 'uv', new THREE.BufferAttribute( new Float32Array([   0,1, 1,1, 1,0,     0,1, 1,0, 0,0 ]), 2 ) );
+        this.fboScene.add( new THREE.Mesh( geom, this.simulationShader ) );
 
 
         //6 the particles:
@@ -216,22 +207,22 @@ export default class Page {
         var l = (this.width * this.height );
         var vertices = new Float32Array( l * 3 )
         for ( var i = 0; i < l; i++ ) {
-            var i3 = i * 3
-            vertices[ i3 ] = ( i % this.width ) / this.width 
-            vertices[ i3 + 1 ] = ( i / this.width ) / this.height
+            var i3 = i * 3;
+            vertices[ i3 ] = ( i % this.width ) / this.width; 
+            vertices[ i3 + 1 ] = ( i / this.width ) / this.height;
         }
 
         //create the particles geometry
-        var geometry = new THREE.BufferGeometry()
-        geometry.setAttribute( 'position',  new THREE.BufferAttribute( vertices, 3 ) )
-        this.particles = new THREE.Points(geometry, this.renderShader)
+        var geometry = new THREE.BufferGeometry();
+        geometry.setAttribute( 'position',  new THREE.BufferAttribute( vertices, 3 ) );
+        this.particles = new THREE.Points(geometry, this.renderShader);
 
-        this.scene.add(this.particles)
+        this.scene.add(this.particles);
 
-        this.renderShader.uniforms.uPositions.value = this.RenderTargetTexture1.texture
+        this.renderShader.uniforms.uPositions.value = this.RenderTargetTexture1.texture;
 
-        this.renderer.setRenderTarget(this.RenderTargetTexture1)
-        this.renderer.render(this.fboScene, this.fboOrthoCamera)
+        this.renderer.setRenderTarget(this.RenderTargetTexture1);
+        this.renderer.render(this.fboScene, this.fboOrthoCamera);
     
     }
 
@@ -243,15 +234,15 @@ export default class Page {
     update() {
         const elapsedTime = this.time.elapsed * 0.0001;
 
-        this.simulationShader.uniforms.uTime.value = elapsedTime
-        this.simulationShader.uniforms.uCubePositions.value = this.cubeTexture
-        this.simulationShader.uniforms.uSpherePositions.value = this.sphereTexture
+        this.simulationShader.uniforms.uTime.value = elapsedTime;
+        this.simulationShader.uniforms.uCubePositions.value = this.cubeTexture;
+        this.simulationShader.uniforms.uSpherePositions.value = this.sphereTexture;
 
-        this.particles.material.uniforms.uPositions.value = this.RenderTargetTexture1.texture
+        this.particles.material.uniforms.uPositions.value = this.RenderTargetTexture1.texture;
 
-        this.renderer.setRenderTarget(this.RenderTargetTexture1)
-        this.renderer.render(this.fboScene, this.fboOrthoCamera)
-        this.renderer.setRenderTarget(null)
-        this.renderer.render(this.scene, this.camera)
+        this.renderer.setRenderTarget(this.RenderTargetTexture1);
+        this.renderer.render(this.fboScene, this.fboOrthoCamera);
+        this.renderer.setRenderTarget(null);
+        this.renderer.render(this.scene, this.camera);
     }
 }
