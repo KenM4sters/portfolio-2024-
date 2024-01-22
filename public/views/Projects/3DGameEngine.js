@@ -3,7 +3,8 @@ import AbstractView from "../AbstractView.js"
 export default class GameEngine extends AbstractView {
     constructor() {
         super();
-        this.setTitle("3D-Game-Engine")
+        this.title = "3D Game Engine";
+        this.setTitle(this.title);
     }
 
     async getHtml() {

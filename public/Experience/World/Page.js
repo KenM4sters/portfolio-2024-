@@ -35,6 +35,7 @@ export default class Page {
                 -((this.cursor.x * Math.PI / 180) / 150), 
                 0
                 )
+
         })
     }
 

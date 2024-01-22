@@ -3,7 +3,8 @@ import AbstractView from "../AbstractView.js"
 export default class PrimeNumbersVisualised extends AbstractView {
     constructor() {
         super();
-        this.setTitle("Prime-Numbers-Visualised");
+        this.title = "Prime Numbers Visualised";
+        this.setTitle(this.title);
     }
 
     async getHtml() {

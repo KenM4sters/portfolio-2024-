@@ -14,22 +14,22 @@ export default class About extends AbstractView {
                 <h1 class="about-content about-heading">About me</h1>
                 <p class="about-content about-para">
                     My name is <strong >Samuel Brookman</strong>, and I'm an aspiring software developer  
-                    looking to implement<br> my skills into the real world.
-                    I have a passion for <strong class="text-gray-300">low level programming</strong> in <strong class="text-gray-300">C++</strong> and enjoy<br>
+                    looking to implement my skills into the real world.
+                    I have a passion for <strong class="text-gray-300">low level programming</strong> in <strong class="text-gray-300">C++</strong> and enjoy
                     exploring the fields of computer graphics and <strong class="text-gray-300">machine learning</strong>.
                 </p>
                 <p class="about-content about-para">
-                    <br>
+                    
                     My name is <strong >Samuel Brookman</strong>, and I'm an aspiring software developer  
-                    looking to implement<br> my skills into the real world.
-                    I have a passion for <strong class="text-gray-300">low level programming</strong> in <strong class="text-gray-300">C++</strong> and enjoy<br>
+                    looking to implement my skills into the real world.
+                    I have a passion for <strong class="text-gray-300">low level programming</strong> in <strong class="text-gray-300">C++</strong> and enjoy
                     exploring the fields of computer graphics and <strong class="text-gray-300">machine learning</strong>.
                 </p>
                 <p class="about-content about-para">
-                    <br>
+                    
                     My name is <strong >Samuel Brookman</strong>, and I'm an aspiring software developer  
-                    looking to implement<br> my skills into the real world.
-                    I have a passion for <strong class="text-gray-300">low level programming</strong> in <strong class="text-gray-300">C++</strong> and enjoy<br>
+                    looking to implement my skills into the real world.
+                    I have a passion for <strong class="text-gray-300">low level programming</strong> in <strong class="text-gray-300">C++</strong> and enjoy
                     exploring the fields of computer graphics and <strong class="text-gray-300">machine learning</strong>.
                 </p>
             </div>

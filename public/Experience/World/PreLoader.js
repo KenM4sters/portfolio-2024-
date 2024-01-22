@@ -57,7 +57,7 @@ export default class PreLoader {
                 this.scene.add(this.text);
             })
 
-        this.scene.add(this.sphere);
+
 
     }
 
@@ -66,11 +66,8 @@ export default class PreLoader {
     }
 
     destroy() {
-        this.scene.remove(this.sphere);
         this.scene.remove(this.text);
         this.text.geometry.dispose();
         this.text.material.dispose();
-        this.sphere.geometry.dispose();
-        this.sphere.material.dispose();
     }
 }

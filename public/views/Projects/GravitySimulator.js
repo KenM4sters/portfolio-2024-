@@ -3,7 +3,8 @@ import AbstractView from "../AbstractView.js"
 export default class GravitySimulator extends AbstractView {
     constructor() {
         super();
-        this.setTitle("Gravity-Simulator")
+        this.title = "Gravity Simulator";
+        this.setTitle(this.title);
     }
 
     async getHtml() {

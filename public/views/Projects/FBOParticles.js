@@ -3,7 +3,8 @@ import AbstractView from "../AbstractView.js"
 export default class FBOParticles extends AbstractView {
     constructor() {
         super();
-        this.setTitle("FBO-Particles");
+        this.title = "FBO Particles";
+        this.setTitle(this.title);
     }
 
     async getHtml() {
