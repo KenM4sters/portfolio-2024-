@@ -1,51 +1,41 @@
 import * as THREE from 'three'
 import Experience from '../Experience.js'
+import Renderer from '../Renderer.js';
 
-export default class Page {
+export default class Page extends Renderer {
     constructor() {
+        super();
         this.experience = new Experience();
         this.debug = this.experience.debug;
         this.scene = this.experience.scene;
         this.time = this.experience.time;
         this.camera = this.experience.camera.instance;
-        this.camera.position.set(0, 0, 1000);
-        this.renderer = this.experience.renderer.instance;
+        this.camera.position.set(0, 0, 50);
         this.sizes = this.experience.sizes;
         this.width = 128;
         this.height = 128;
-        this.size = 128;
+        this.size = 12;
 
         this.cursor = {};
         this.cursor.x = this.sizes.width / 2;
         this.cursor.y = this.sizes.height / 2;
 
-        this.setFBO();
-        this.MouseListener();
+        this.setFBO();  
     }
 
 
-
-    MouseListener() {
-        window.addEventListener('mousemove', (e) => {
-            this.cursor.x = e.clientX - (this.sizes.width / 2);
-            this.cursor.y = -(e.clientY - (this.sizes.height / 2));
-
-            this.camera.rotation.set(
-                (this.cursor.y * Math.PI / 180) / 150, 
-                -((this.cursor.x * Math.PI / 180) / 150), 
-                0
-                )
-
-        })
-    }
 
     setFBO() {
         //returns an array of random 3D coordinates
         function getRandomData(count, size ){
-        
-            var len = count * 4;
-            var data = new Float32Array( len );
-            while( len-- )data[len] = ( Math.random() * 2 - 1 ) * size;
+            var data = new Float32Array(count * 4)
+            for(let i = 0; i < count * 4; i++) {
+                data[i + 0] = (Math.random() * 2 - 1) * size;
+                data[i + 1] = (Math.random() * 2 - 1) * size;
+                data[i + 2] = (Math.random() * 2 - 1) * size;
+                data[i + 0] = 1.0;
+            }
+
             return data;
         }
 
@@ -55,7 +45,8 @@ export default class Page {
             v.y = Math.random() * 2 - 1;
             v.z = Math.random() * 2 - 1;
             v.w = 0.0;
-            if (v.length() > 1) return getPoint(v, size);
+            if (v.length() > 1) 
+                return getPoint(v, size);
             return v.normalize().multiplyScalar(size);
         }
 
@@ -131,7 +122,8 @@ export default class Page {
         this.renderShader = new THREE.ShaderMaterial( {
             uniforms: {
                 uPositions: { type: "t", value: null },
-                pointSize: { type: "f", value: 2 }
+                pointSize: { type: "f", value: 2 },
+                uTime: { value: null }
             },
             vertexShader: `
             
@@ -155,16 +147,21 @@ export default class Page {
             fragmentShader: `
             
             //fragment shader
+            uniform float uTime;
             void main()
             {
-                gl_FragColor = vec4( vec3( 1. ), .25 );
+                float r = abs(sin(uTime));
+                float g = abs(sin(uTime + 1.0));
+                float b = abs(cos(uTime));
+            
+                gl_FragColor = vec4(r, g, b, 1.0);
             }
             
 
             `
         })
 
-        var gl = this.renderer.getContext()
+        var gl = this.instance.getContext()
 
         // //1 we need FLOAT Textures to store positions
         // //https://github.com/KhronosGroup/WebGL/blob/master/sdk/tests/conformance/extensions/oes-texture-float.html
@@ -222,8 +219,8 @@ export default class Page {
 
         this.renderShader.uniforms.uPositions.value = this.RenderTargetTexture1.texture;
 
-        this.renderer.setRenderTarget(this.RenderTargetTexture1);
-        this.renderer.render(this.fboScene, this.fboOrthoCamera);
+        this.instance.setRenderTarget(this.RenderTargetTexture1);
+        this.instance.render(this.fboScene, this.fboOrthoCamera);
     
     }
 
@@ -236,14 +233,22 @@ export default class Page {
         const elapsedTime = this.time.elapsed * 0.0001;
 
         this.simulationShader.uniforms.uTime.value = elapsedTime;
+        this.renderShader.uniforms.uTime.value = elapsedTime;
+
         this.simulationShader.uniforms.uCubePositions.value = this.cubeTexture;
         this.simulationShader.uniforms.uSpherePositions.value = this.sphereTexture;
 
         this.particles.material.uniforms.uPositions.value = this.RenderTargetTexture1.texture;
 
-        this.renderer.setRenderTarget(this.RenderTargetTexture1);
-        this.renderer.render(this.fboScene, this.fboOrthoCamera);
-        this.renderer.setRenderTarget(null);
-        this.renderer.render(this.scene, this.camera);
+        this.instance.setRenderTarget(this.RenderTargetTexture1);
+        this.instance.render(this.fboScene, this.fboOrthoCamera);
+        this.instance.setRenderTarget(null);
+
+        // Decide whether to use post-processing or not by switching this.usePostProcess to false
+
+        if(this.usePostprocess)
+            this.postProcess.composer.render(this.scene, this.camera);
+        else
+            this.instance.render(this.scene, this.camera);
     }
 }

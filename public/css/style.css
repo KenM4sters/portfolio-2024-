@@ -1,9 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Genos:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/*
+
+    Animations
+
+*/
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+
+/*
+
+     *, Body, Html, 
+
+*/
+
+}
 *
 {
     margin: 0;
     padding: 0;
+    animation: fadeInAnimation ease-in-out 1s;
 }
 
 html,
@@ -33,11 +55,17 @@ body
     height: 100%;
 }
 
+
+
 /*
 
     Navbar
 
 */
+
+.navbar-unloaded {
+    visibility: hidden;
+}
 
 #navbar {
     position: relative;
@@ -68,7 +96,7 @@ body
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #bacfda;
+    background-color: white;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 }
@@ -173,7 +201,7 @@ body
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1vw;
+    gap: 2vw;
 }
 
 .skills-box {
@@ -193,20 +221,29 @@ body
 .skills-item {
     color: white;
     height: 20px;
-    border-radius: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    background: linear-gradient(0deg, rgba(15, 15, 15, 0.8) 50%, rgb(29, 29, 29) 90%);
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     transition: all;
     display: flex;
     justify-content: center;
     text-align: center;
     border-color: black;
-    box-shadow: 5px;
+    box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     cursor: default;
     box-shadow: black;
+    background: linear-gradient(0deg, rgba(15, 15, 15, 0.8) 70%, rgb(29, 29, 29) 90%) padding-box,
+                linear-gradient(0deg, rgba(15, 15, 15, 0.8) 10%, rgb(100, 30, 234, 0.8) 90%) border-box;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+
+.skills-item:hover {
+    background: rgba(100, 50, 250);
+    transition: all;
+    transition-duration: 0.5s;
+    transform-origin: left;
 }
 
 .skills-heading {
@@ -273,7 +310,25 @@ body
     color: rgba(255, 255, 255, 0.9);
     font-weight: 400;
     font-size: 2.3rem;
-    transition: transform 0.25s ease-out;
+    transition: all;
+    transition-duration: 0.3s;
+}
+
+.projects-item-wrapper::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    left: -2%;
+    background-color: rgb(32, 31, 31);
+    border: rgba(255, 255, 255, 0.8) solid 2px;
+}
+
+.projects-item-wrapper:hover::before {
+    background-color: white;
+    transition: all;
+    transition-duration: 0.5s;
 }
 
 /*
@@ -376,14 +431,15 @@ body
     height: 30%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
 }
 
 .preloader-button {
     padding: 6px;
-    color: black;
-    background-color: #bacfda;
+    color: #3df2f5;
+    background-color: rgba(0, 0, 0, 0);
+    border: #3df2f5 solid 2px;
     text-decoration: none;
     border-radius: 4px;
     transition: all;
@@ -391,10 +447,10 @@ body
 }
 
 .preloader-button:hover {
-    background-color: black;
-    color: purple;
+    background-color: #3df2f5;
+    color: black;
     transition: all;
-    transition-duration: 1s;
+    transition-duration: 0.5s;
     scale: 0.95;
 }
 

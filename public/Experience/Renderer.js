@@ -14,7 +14,7 @@ export default class Renderer
         this.scene = this.experience.scene;
         this.camera = this.experience.camera;
         this.postProcess = {};
-        this.usePostprocess = false;
+        this.usePostprocess = true;
 
         this.setInstance();
         this.setPostProcess();
@@ -51,9 +51,10 @@ export default class Renderer
 
     setPostProcess() {
 
-        /**
-         * Passes
-         */
+        /*
+          Passes
+        */
+
         // Render pass
         this.postProcess.renderPass = new RenderPass(this.scene, this.camera.instance);
 

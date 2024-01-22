@@ -8,7 +8,6 @@ import World from './World/World.js'
 import Resources from './Utils/Resources.js'
 import sources from './sources.js'
 import Debug from './Utils/Debug.js'
-import EventListener from './Utils/EventListener.js'
 
 let instance = null
 
@@ -38,7 +37,6 @@ export default class Experience
         this.camera = new Camera();
         this.renderer = new Renderer();
         this.world = new World();
-        this.listener = new EventListener();
 
 
         // Resize event
@@ -64,7 +62,7 @@ export default class Experience
 
     update()
     {
-        // this.camera.update()
+        this.camera.update()
         this.renderer.update();
         this.world.update();
     }

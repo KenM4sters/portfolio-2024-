@@ -9,6 +9,7 @@ export default class PreLoader {
         this.scene = this.experience.scene;
         this.renderer = this.experience.renderer;
         this.camera = this.experience.camera;
+        this.camera.instance.position.set(0, 5, 40)
 
         this.setScene()
     }
@@ -17,13 +18,14 @@ export default class PreLoader {
 
         //Camera
 
-        this.sphere = new THREE.Mesh(
-            new THREE.SphereGeometry(5, 32, 32),
-            new THREE.MeshBasicMaterial({color: 'red', wireframe: true})
-        );
+        //Lighting
+        var pointLight = new THREE.PointLight('white', 50.0);
+        pointLight.position.set(5, 5, 5);
+        this.scene.add(pointLight);
 
         var textureLoader = new THREE.TextureLoader();
-        const matcapTexture = textureLoader.load('/static/textures/matcaps/8.png');
+        const rockTexture = textureLoader.load('/static/textures/rock/Rock020_1K_Color.jpg');
+        const rockRoughnessTexture = textureLoader.load('/static/textures/rock/Rock020_1K_Displacement.jpg')
 
         var fontLoader = new FontLoader();
 
@@ -32,15 +34,15 @@ export default class PreLoader {
             (font) =>
             {
                 // Material
-                const material = new THREE.MeshMatcapMaterial({ matcap: matcapTexture });
+                const material = new THREE.MeshStandardMaterial({map: rockTexture })
         
                 // Text
                 const textGeometry = new TextGeometry(
                     'Welcome',
                     {
                         font: font,
-                        size: 60,
-                        height: 10.0,
+                        size: 5,
+                        height: 2.0,
                         curveSegments: 24,
                         bevelEnabled: true,
                         bevelThickness: 0.03,
@@ -52,8 +54,8 @@ export default class PreLoader {
                 textGeometry.center();
         
                 this.text = new THREE.Mesh(textGeometry, material);
-                this.text.position.set(-10, 2, -5);
-                this.text.rotation.set(0, (10 * (180/Math.PI)), 0);
+                this.text.position.set(-5, 3, 0);
+                this.text.rotation.set(0, (10 * (20/Math.PI)), 0);
                 this.scene.add(this.text);
             })
 

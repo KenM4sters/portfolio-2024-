@@ -1,5 +1,11 @@
 //fragment shader
+
+uniform float uTime;
 void main()
-{
-    gl_FragColor = vec4( vec3( 1. ), .25 );
+{   
+    float r = abs(sin(uTime));
+    float g = abs(cos(uTime));
+    float b = abs(sin(uTime));
+
+    gl_FragColor = vec4(r, g, b, 1.0);
 }

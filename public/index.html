@@ -10,9 +10,9 @@
     <canvas class="webgl"></canvas>
     <main id="main">
         <nav id="navbar">
-            <a href="/dashboard" class="nav__link" data-link>HOME</a>
-            <a href="/about" class="nav__link" data-link>ABOUT</a>
-            <a href="/projects" class="nav__link" data-link>PROJECTS</a>
+            <a href="/dashboard" class="navbar-unloaded" data-link>HOME</a>
+            <a href="/about" class="navbar-unloaded" data-link>ABOUT</a>
+            <a href="/projects" class="navbar-unloaded" data-link>PROJECTS</a>
         </nav>
         <div id="app"></div>
     </main>
@@ -24,7 +24,8 @@
     <script type="importmap">
         {
             "imports": {
-                "three": "./build/three.module.js"
+                "three": "./build/three.module.js",
+                "gsap": "./gsap/gsap-core.js"
             }
         }
     </script>
