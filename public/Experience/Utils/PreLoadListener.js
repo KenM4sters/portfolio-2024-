@@ -4,7 +4,7 @@ export default class PreLoadListener extends EventEmitter {
     constructor() {
         super();
         window.addEventListener("DOMContentLoaded", (e) => {
-            this.enterButton = document.querySelector('.preloader-button');
+            this.enterButton = document.querySelector('.preloader-btn');
             this.navbar = document.querySelectorAll('.navbar-unloaded');
             this.listenToClick();
         })

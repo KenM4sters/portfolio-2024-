@@ -8,6 +8,7 @@ export default class PreLoader {
         this.experience = new Experience();
         this.scene = this.experience.scene;
         this.renderer = this.experience.renderer;
+        this.resources = this.experience.resources;
         this.camera = this.experience.camera;
         this.camera.instance.position.set(0, 5, 40)
 
@@ -16,16 +17,43 @@ export default class PreLoader {
 
     setScene() {
 
+        // Evnironment
+        // const environmentMap = this.resources.items['skyMap']
+        // environmentMap.colorSpace = THREE.SRGBColorSpace
+        
+        // this.scene.background = environmentMap
+        // this.scene.environment = environmentMap
+
         //Camera
 
         //Lighting
-        var pointLight = new THREE.PointLight('white', 50.0);
-        pointLight.position.set(5, 5, 5);
-        this.scene.add(pointLight);
+        this.pointLight = new THREE.PointLight('white', 100.0);
+        this.pointLight.position.set(10, 8, 3);
+        this.scene.add(this.pointLight);
 
-        var textureLoader = new THREE.TextureLoader();
-        const rockTexture = textureLoader.load('/static/textures/rock/Rock020_1K_Color.jpg');
-        const rockRoughnessTexture = textureLoader.load('/static/textures/rock/Rock020_1K_Displacement.jpg')
+        // var ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        // this.scene.add(ambientLight);
+
+        // Textures
+        this.rockMaterial = new THREE.MeshPhysicalMaterial();
+        this.rockMaterial.map = this.resources.items['rockTextureMap'];
+        this.rockMaterial.normalMap = this.resources.items['rockNormalMap'];
+        this.rockMaterial.aoMap = this.resources.items['rockAmbientOcclusionMap'];
+        this.rockMaterial.displacementMap = this.resources.items['rockDisplacementMap'];
+        this.rockMaterial.roughnessMap = this.resources.items['rockRoughnessMap'];
+        // this.rockMaterial.metalness = 0;
+        // this.rockMaterial.roughness = 1.0;
+        // this.rockMaterial.transmission = 1;
+        // this.rockMaterial.ior = 1.5;
+        // this.rockMaterial.thickness = 0.5;
+
+        this.sphere = new THREE.Mesh(
+            new THREE.SphereGeometry(2, 2, 32, 32),
+            this.rockMaterial
+        )
+        this.sphere.position.set(5, 5, 0);
+        this.scene.add(this.sphere);
+
 
         var fontLoader = new FontLoader();
 
@@ -34,7 +62,7 @@ export default class PreLoader {
             (font) =>
             {
                 // Material
-                const material = new THREE.MeshStandardMaterial({map: rockTexture })
+                const material = new THREE.MeshStandardMaterial()
         
                 // Text
                 const textGeometry = new TextGeometry(
@@ -68,8 +96,22 @@ export default class PreLoader {
     }
 
     destroy() {
+        this.scene.traverse((child) => {
+            if(child instanceof THREE.Mesh) {
+                child.geometry.dispose();
+
+                for(const key in child.material) {
+                    const value = child.material[key];
+
+                    if(value && typeof value.dispose === 'function') {
+                        value.dispose();
+                    }
+                }
+            }
+        })
+
         this.scene.remove(this.text);
-        this.text.geometry.dispose();
-        this.text.material.dispose();
+        this.scene.remove(this.sphere);
+        this.scene.remove(this.pointLight);
     }
 }

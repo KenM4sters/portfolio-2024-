@@ -35,25 +35,27 @@ export default class About extends AbstractView {
             </div>
             <div class="skills-wrapper">
                 <div class="skills-box">
-                    <h1 class="skills-heading">Skills</h1>
-                    <div class="skills-list-wrapper">
-                        <ul class="skills-list">
-                            <li class="skills-item"> C++ </li>
-                            <li class="skills-item"> C </li>
-                            <li class="skills-item"> Python </li>
-                            <li class="skills-item"> Typescript </li>
-                            <li class="skills-item"> Javascript </li>
-                            <li class="skills-item"> Arm64 ASM </li>
-                            <li class="skills-item"> Rust </li>
-                            <li class="skills-item"> Vulkan </li>
-                            <li class="skills-item"> OpenGL </li>
-                            <li class="skills-item"> Git </li>
-                            <li class="skills-item"> threeJS </li>
-                            <li class="skills-item"> PyTorch </li>
-                            <li class="skills-item"> Linux </li>
-                            <li class="skills-item"> Blender </li>
-                            <li class="skills-item"> Docker </li>
-                        </ul>
+                    <div class="skills-info-wrapper">
+                        <h1 class="skills-heading">Skills</h1>
+                        <div class="skills-list-wrapper">
+                            <ul class="skills-list">
+                                <li class="skills-item"> C++ </li>
+                                <li class="skills-item"> C </li>
+                                <li class="skills-item"> Python </li>
+                                <li class="skills-item"> Typescript </li>
+                                <li class="skills-item"> Javascript </li>
+                                <li class="skills-item"> Arm64 ASM </li>
+                                <li class="skills-item"> Rust </li>
+                                <li class="skills-item"> Vulkan </li>
+                                <li class="skills-item"> OpenGL </li>
+                                <li class="skills-item"> Git </li>
+                                <li class="skills-item"> threeJS </li>
+                                <li class="skills-item"> PyTorch </li>
+                                <li class="skills-item"> Linux </li>
+                                <li class="skills-item"> Blender </li>
+                                <li class="skills-item"> Docker </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>  

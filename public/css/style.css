@@ -207,7 +207,7 @@ body
 .skills-box {
     /*https://getcssscan.com/css-box-shadow-examples*/
     box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-    background-color: rgba(15, 15, 15, 0.8);
+    background-color: rgba(15, 15, 15, 0.6);
     height: 70%;
     width: 100%;
     border-radius: 10px;
@@ -216,6 +216,17 @@ body
     justify-content: start;
     text-align: center;
     gap: 60px;
+}
+
+.skills-info-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-top: 5%;
+    gap: 3vh;
+
 }
 
 .skills-item {
@@ -248,9 +259,14 @@ body
 
 .skills-heading {
     font-size: 2rem;
-    font-weight: 400;
-    color: white;
+    font-weight: 500;
+    background-image: linear-gradient(0deg, #131313, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+
+
+
 
 /*
 
@@ -337,6 +353,7 @@ body
 
 */
 
+
 .unique-project-wrapper {
     width: 90%;
     height: 70%;
@@ -400,7 +417,7 @@ body
 }
 
 .unique-project-summary {
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -435,7 +452,7 @@ body
     align-items: center;
 }
 
-.preloader-button {
+.preloader-btn {
     padding: 6px;
     color: #3df2f5;
     background-color: rgba(0, 0, 0, 0);
@@ -446,7 +463,7 @@ body
     transition-duration: 1s;
 }
 
-.preloader-button:hover {
+.preloader-btn:hover {
     background-color: #3df2f5;
     color: black;
     transition: all;

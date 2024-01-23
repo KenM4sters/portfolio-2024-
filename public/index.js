@@ -10,7 +10,8 @@ import BlogWebsite from './views/Projects/BlogWebsite.js'
 import FBOParticles from './views/Projects/FBOParticles.js'
 
 import Experience from './Experience/Experience.js'
-import Preloader from './views/Preloader.js';
+
+window.inExperience = false;
 
 const navigateTo = url => {
     history.pushState(null, null, url);
@@ -22,10 +23,6 @@ const router = async () => {
     const routes = [
         {
             path: "/",
-            view: new Preloader()
-        },
-        {
-            path: "/dashboard",
             view: new Dashboard(),
         },
         {
@@ -95,9 +92,21 @@ const router = async () => {
 
     const view = match.route.view;
 
-    document.querySelector("#app").innerHTML = await view.getHtml();
+    if(window.inExperience)
+        document.querySelector("#app").innerHTML = await view.getHtml();
+    else 
+        document.querySelector('#app').innerHTML = `
 
+            <div class="preloader-wrapper">
+                <div class="preloader-menu">
+                    <a class="preloader-btn" data-link> Enter </a>
+                </div>
+            </div>
+        `
+        window.inExperience = true;
 };
+
+
 
 window.addEventListener("popstate", router);
 

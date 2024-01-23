@@ -40,7 +40,7 @@ export default class Camera
                 let {x, y} = intersects[0].point
                 this.instance.rotation.set(
                     y * 0.00001 * 180/Math.PI, 
-                    -(x * 0.00001 * 180/Math.PI), 
+                    - (x * 0.00001 * 180/Math.PI), 
                     0
                 );
             }

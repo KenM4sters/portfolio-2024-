@@ -1,7 +1,7 @@
 import EventEmitter from "./EventEmitter.js"
 import * as THREE from 'three'
 import { GLTFLoader } from '../../jsm/loaders/GLTFLoader.js'
-
+import { RGBELoader } from '../../jsm/loaders/RGBELoader.js'
 
 export default class Resources extends EventEmitter {
     constructor(sources) {

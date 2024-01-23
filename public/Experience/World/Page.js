@@ -8,9 +8,10 @@ export default class Page extends Renderer {
         this.experience = new Experience();
         this.debug = this.experience.debug;
         this.scene = this.experience.scene;
+        this.resources = this.experience.resources;
         this.time = this.experience.time;
         this.camera = this.experience.camera.instance;
-        this.camera.position.set(0, 0, 50);
+        this.camera.position.set(0, 10, 50);
         this.sizes = this.experience.sizes;
         this.width = 128;
         this.height = 128;
@@ -20,7 +21,34 @@ export default class Page extends Renderer {
         this.cursor.x = this.sizes.width / 2;
         this.cursor.y = this.sizes.height / 2;
 
-        this.setFBO();  
+        this.setFBO();
+        this.setEnvironment();  
+    }
+
+    setEnvironment() {
+        console.log(this.resources.items['rockTextureMap']);
+
+        var floor = new THREE.Mesh(
+            new THREE.PlaneGeometry(200, 200, 1000, 1000),
+            new THREE.MeshPhysicalMaterial()
+        )
+
+        var pointLight = new THREE.PointLight(0xffffff, 1000);
+        pointLight.position.set(0, 10, 0);
+        this.scene.add(pointLight);
+
+        var ambientLight = new THREE.AmbientLight(0xffffff, 100);
+        this.scene.add(ambientLight);
+        
+        //Textures
+        floor.material.map = this.resources.items['rockTextureMap'];
+        floor.material.normalMap = this.resources.items['rockNormalMap'];
+        floor.material.aoMap = this.resources.items['rockAmbientOcclusionMap'];
+        floor.material.displacementMap = this.resources.items['rockDisplacementMap'];
+        
+        floor.position.set(0, -15, 0);
+        floor.rotation.set(10 * 180/Math.PI, 0, 0);
+        this.scene.add(floor)
     }
 
 
