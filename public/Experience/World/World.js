@@ -11,25 +11,31 @@ export default class World
         this.experience = new Experience();
         this.scene = this.experience.scene;
         this.resources = this.experience.resources;
-        this.preLoadListener = this.experience.viewListener;
+        this.routerListener = this.experience.routerListener;
     
         this.listenToPreLoader();
     }
 
     listenToPreLoader() {
+        this.preLoader = new PreLoader();
         this.resources.on('ready', () => {
             console.log('resources are ready');
-            this.preLoader = new PreLoader();
-            this.preLoadListener.on('EnteringExperience', () => {
+
+            // Add button to enter the 'experience'
+            document.querySelector('.preload-btn-wrapper').innerHTML = `
+                <a class="preloader-btn" data-link> Enter </a>
+            `;
+            document.querySelector('.preloader-icon').classList.add('preload-finished');
+
+            // Callback for clicking the previously appended button
+            this.routerListener.on('EnteringExperience', () => {
                 this.page = new Page();
                 this.preLoader.destroy();
             })
         })
     }
 
-    resize() {
-        this.page.resize();
-    }
+    resize() { return }
 
     update() {
         if(this.page !== undefined)

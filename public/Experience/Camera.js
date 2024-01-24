@@ -14,7 +14,7 @@ export default class Camera extends EventEmitter
         this.scene = this.experience.scene;
         this.canvas = this.experience.canvas;
         this.time = this.experience.time;
-        this.viewListener = this.experience.viewListener;
+        this.routerListener = this.experience.routerListener;
         this.cursor = {};
         this.cursor.x = 0
         this.cursor.y = 0
@@ -31,8 +31,6 @@ export default class Camera extends EventEmitter
         this.targetQuaternion = new THREE.Quaternion();
         this.speed = 2;
 
-
-        // Used to signal whether the user is on the home'page' or not
 
         this.setInstance();
         this.listenToPageChange();
@@ -57,12 +55,18 @@ export default class Camera extends EventEmitter
             if(intersects.length > 0) {
                 
                 let {x, y} = intersects[0].point
+                // console.log(x,y);
                 // this.dummy.position.set(this.target.position.x, this.target.position.y, this.target.position.z)
                 // this.dummy.lookAt(this.instance.position, this.dummy.position, this.dummy.up)
 
-                this.target.position.set(x * 0.1, y * 0.1, 0)
-                this.rotationMatrix.lookAt( this.instance.position, this.target.position, this.instance.up );
-                this.targetQuaternion.setFromRotationMatrix( this.rotationMatrix );
+                this.dashboardWrapper = document.querySelector('.dashboard-wrapper');
+                this.preloadWrapper = document.querySelector('.preloader-wrapper');
+                if(this.dashboardWrapper !== null || this.preloadWrapper !== null ) {
+
+                    this.target.position.set(x * 0.1, y * 0.1, 0)
+                    this.rotationMatrix.lookAt( this.instance.position, this.target.position, this.instance.up );
+                    this.targetQuaternion.setFromRotationMatrix( this.rotationMatrix );
+                }
             }
         })
     }
@@ -100,11 +104,11 @@ export default class Camera extends EventEmitter
     }
 
     listenToPageChange() {
-        this.viewListener.on('cameraLookRight', () => {
+        this.routerListener.on('viewingAboutOrProjects', () => {
             this.generateTarget(30, -30, 30);
         })
 
-        this.viewListener.on('cameraLookForward', () => {
+        this.routerListener.on('viewingHome', () => {
             this.generateTarget(0, 0, 0);
         })
         

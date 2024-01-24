@@ -10,143 +10,183 @@ import BlogWebsite from './views/Projects/BlogWebsite.js'
 import FBOParticles from './views/Projects/FBOParticles.js'
 
 import Experience from './Experience/Experience.js'
+import EventEmitter from './Experience/Utils/EventEmitter.js';
+import { CompressedCubeTexture } from 'three';
+
+let instance = null;
+
+export default class Router extends EventEmitter {
+    constructor() {
+
+        if(instance)
+            return instance;
+
+        super();
+        instance = this;
+
+        window.inExperience = false;
+        this.match = null;
+        this.view = null;
+
+        // Allow the user to hit the back button in the browser
+        window.addEventListener("popstate", this.router);
+
+        // Override traditional href navigation if the dom element has the data-link tag
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.addEventListener('click', (e) => {
+                if (e.target.matches("[data-link]")) {
+                    e.preventDefault();
+                    this.navigateTo(e.target.href);
+                    
+
+                    // Appending navbar once preloader button has been clicked
+                    if(e.target.classList.contains('preloader-btn')) {
+                        this.trigger('EnteringExperience');
+                        document.querySelector('#navbar').innerHTML = `
+                            <a href="/" class="navbar-unloaded home_button camera_look_forward nav__link" data-link>HOME</a>
+                            <a href="/about" class="navbar-unloaded camera_look_right nav__link" data-link>ABOUT</a>
+                            <a href="/projects" class="navbar-unloaded camera_look_right nav__link" data-link>PROJECTS</a>
+                        `
+                    }
 
 
-window.inExperience = false;
+                    // Callback function to tell threeJS camera to rotate
+                    if(this.match.route.path === '/')
+                        this.trigger('viewingHome');
+                    else if(this.match.route.path === '/about' || this.match.route.path === '/projects')
+                        this.trigger('viewingAboutOrProjects');;
+                }
 
+            })
 
-const navigateTo = url => {
-    history.pushState(null, null, url);
-    router();
+            this.router();
+        })
+
+    }
+
+    navigateTo(url) {
+        history.pushState(null, null, url);
+        this.router();
+    }
+
+    // Routes to navigate to and from
+    async router() {
+        this.routes = [
+            {
+                path: "/",
+                view: new Dashboard(),
+                group: 'main'
+            },
+            {
+                path: "/about",
+                view: new About(),
+                group: 'main'
+    
+            },
+            {
+                path: "/projects",
+                view: new Projects(),
+                group: 'main'
+    
+            },
+            {
+                path: "/2DGame",
+                view: new Game(),
+                group: 'project'
+    
+            },
+            {
+                path: "/3DGameEngine",
+                view: new GameEngine(),
+                group: 'project'
+    
+            },
+            {
+                path: "/GravitySimulator",
+                view: new GravitySimulator(),
+                group: 'project'
+    
+            },
+            {
+                path: "/PrimeNumbersVisualised",
+                view: new PrimeNumbersVisualised(),
+                group: 'project'
+    
+            },
+            {
+                path: "/RestAPI",
+                view: new RestAPI(),
+                group: 'project'
+    
+            },
+            {
+                path: "/BlogWebsite",
+                view: new BlogWebsite(),
+                group: 'project'
+    
+            },
+            {
+                path: "/FBOParticles",
+                view: new FBOParticles(),
+                group: 'project'
+    
+            },
+    
+        ];
+    
+        // Test each route 
+        this.potentialMatches = this.routes.map(route => {
+            return {
+                route: route,
+                isMatch: location.pathname == route.path
+            }
+        });
+    
+        // Finding the correct route for the 'page' that is currently in view
+        this.match = this.potentialMatches.find(potentialMatch => potentialMatch.isMatch)
+    
+        // Allowing scrolling on projects pages to see images
+        if(this.match.route.group === 'project') {
+            document.body.style.overflow = 'visible';
+        }
+        else {
+            document.body.style.overflow = 'hidden';
+        }
+    
+        // Default route if user enters an invalid name
+        if(!this.match) {
+            this.match = {
+                routes: routes[0],
+                isMatch: true
+            }
+        }
+    
+        this.view = this.match.route.view;
+    
+    
+        // Get HTML associated with the current route only if the preload button has been clicked
+        if(window.inExperience) {
+            document.querySelector("#app").innerHTML = await this.view.getHtml();
+        }
+        else {
+            document.querySelector('#app').innerHTML = `
+    
+                <div class="preloader-wrapper">
+                    <div class="preloader-menu">
+                        <span class="preloader-icon"></span>
+                        <div class="preload-btn-wrapper"></div>
+                    </div>
+                </div>
+            `
+        }
+            // Since this function is only called when clicking an element with the data-link tag,
+            // and the only element present with that tag is the enter button on the preloader,
+            // then the user must have clicked it. 
+            window.inExperience = true;
+    };
 }
 
-// Routes to navigate to and from
-const router = async () => {
-    const routes = [
-        {
-            path: "/",
-            view: new Dashboard(),
-            group: 'main'
-        },
-        {
-            path: "/about",
-            view: new About(),
-            group: 'main'
-
-        },
-        {
-            path: "/projects",
-            view: new Projects(),
-            group: 'main'
-
-        },
-        {
-            path: "/2DGame",
-            view: new Game(),
-            group: 'project'
-
-        },
-        {
-            path: "/3DGameEngine",
-            view: new GameEngine(),
-            group: 'project'
-
-        },
-        {
-            path: "/GravitySimulator",
-            view: new GravitySimulator(),
-            group: 'project'
-
-        },
-        {
-            path: "/PrimeNumbersVisualised",
-            view: new PrimeNumbersVisualised(),
-            group: 'project'
-
-        },
-        {
-            path: "/RestAPI",
-            view: new RestAPI(),
-            group: 'project'
-
-        },
-        {
-            path: "/BlogWebsite",
-            view: new BlogWebsite(),
-            group: 'project'
-
-        },
-        {
-            path: "/FBOParticles",
-            view: new FBOParticles(),
-            group: 'project'
-
-        },
-
-    ];
-
-    // Test each route 
-    const potentialMatches = routes.map(route => {
-        return {
-            route: route,
-            isMatch: location.pathname == route.path
-        }
-    });
-
-    // Finding the correct route for the 'page' that is currently in view
-    let match = potentialMatches.find(potentialMatch => potentialMatch.isMatch)
-
-    // Allowing scrolling on projects pages to see images
-    if(match.route.group === 'project') {
-        document.body.style.overflow = 'visible';
-    }
-    else {
-        document.body.style.overflow = 'hidden';
-    }
-
-    // Default route if user enters an invalid name
-    if(!match) {
-        match = {
-            routes: routes[0],
-            isMatch: true
-        }
-    }
-
-    const view = match.route.view;
-
-
-    // Get HTML associated with the current route only if the preload button has been clicked
-    if(window.inExperience)
-        document.querySelector("#app").innerHTML = await view.getHtml();
-    else 
-        document.querySelector('#app').innerHTML = `
-
-            <div class="preloader-wrapper">
-                <div class="preloader-menu">
-                    <a class="preloader-btn" data-link> Enter </a>
-                </div>
-            </div>
-        `
-        // Since this function is only called when clicking an element with the data-link tag,
-        // and the only element present with that tag is the enter button on the preloader,
-        // then the user must have clicked it. 
-        window.inExperience = true;
-};
-
-
-// Allow the user to hit the back button in the browser
-window.addEventListener("popstate", router);
-
-// Override traditional href navigation if the dom element has the data-link tag
-document.addEventListener('DOMContentLoaded', () => {
-    document.body.addEventListener('click', (e) => {
-        if (e.target.matches("[data-link]")) {
-            e.preventDefault();
-            navigateTo(e.target.href);
-        }
-    })
-    router();
-})
+const router = new Router();
 
 // Instantiate threeJS experience
 const experience = new Experience(document.querySelector('.webgl'))
