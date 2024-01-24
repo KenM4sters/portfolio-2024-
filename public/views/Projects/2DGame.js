@@ -41,22 +41,31 @@ export default class Game extends AbstractView {
                             </p>                            
                             
                             <p class="unique-project-summary-details">  
-                            While it’s really just a very basic game, it served as a fantastic introduction into not only graphics programming, but low-level programming in C. However, I’ve since moved on to creating an actual game engine in C++ which utilises the more relevant-to-today’s-technology API, Vulkan. 
+                            While it's really just a very basic game, it served as a fantastic introduction into not only graphics programming, but low-level programming in C. However, I’ve since moved on to creating an actual game engine in C++ which utilises the more relevant-to-today’s-technology API, Vulkan. 
                             </p>
 
                             <p class="unique-project-summary-details">  
                                 A more holistic review of the development of the game-engine can be found in the Github repository. 
                             </p>
                         </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5" stroke="white" class="arrow-right">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-
                     </div>
                 </div>
             </div>
             <div class="unique-project-images-wrapper">
-                
+                <div class="unique-project-images-grid">
+                    <figure class="gallery__item gallery__item--1">
+                        <img src="static/images/ken-masters.jpg" class="gallery__img" alt="Image 1">
+                    </figure>
+                    <figure class="gallery__item gallery__item--2">
+                        <img src="static/images/ken-masters.jpg" class="gallery__img" alt="Image 2">
+                    </figure>
+                    <figure class="gallery__item gallery__item--3">
+                        <img src="static/images/ken-masters.jpg" class="gallery__img" alt="Image 3">
+                    </figure>
+                    <figure class="gallery__item gallery__item--4">
+                        <img src="static/images/ken-masters.jpg" class="gallery__img" alt="Image 4">
+                    </figure>
+                </div>
             </div>
         `
     }

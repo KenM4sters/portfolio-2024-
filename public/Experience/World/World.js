@@ -1,5 +1,4 @@
 import Experience from '../Experience.js'
-import PreLoadListener from '../Utils/PreLoadListener.js'
 import Page from './Page.js'
 import PreLoader from './PreLoader.js'
 
@@ -12,7 +11,7 @@ export default class World
         this.experience = new Experience();
         this.scene = this.experience.scene;
         this.resources = this.experience.resources;
-        this.preLoadListener = new PreLoadListener();
+        this.preLoadListener = this.experience.viewListener;
     
         this.listenToPreLoader();
     }
@@ -26,6 +25,10 @@ export default class World
                 this.preLoader.destroy();
             })
         })
+    }
+
+    resize() {
+        this.page.resize();
     }
 
     update() {

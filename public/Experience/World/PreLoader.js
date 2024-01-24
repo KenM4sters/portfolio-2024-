@@ -82,12 +82,33 @@ export default class PreLoader {
                 textGeometry.center();
         
                 this.text = new THREE.Mesh(textGeometry, material);
+                this.text.rotation.set(0, (Math.PI / 4), 0);
                 this.text.position.set(-5, 3, 0);
-                this.text.rotation.set(0, (10 * (20/Math.PI)), 0);
                 this.scene.add(this.text);
             })
 
+        // Floor
+        this.floorGeometry = new THREE.PlaneGeometry(100, 100, 200, 200);
+        this.floorMaterial = new THREE.MeshPhysicalMaterial();
 
+        // this.floorMaterial.map = this.resources.items['marbleTextureMap'];
+        // this.floorMaterial.normalMap = this.resources.items['marbleNormalMap'];
+        // this.floorMaterial.displacementMap = this.resources.items['marbleDisplacementMap'];
+        // this.floorMaterial.roughnessMap = this.resources.items['marbleRoughnessMap'];
+        this.floorMaterial.roughness = 0;
+        this.floorMaterial.transmission = 1.0;
+        this.floorMaterial.ior = 1.3;
+        this.floorMaterial.thickness = 0.8;
+
+        this.floor = new THREE.Mesh(
+            this.floorGeometry,
+            this.floorMaterial
+        )
+
+        this.floor.position.set(0, 0, 0);
+        this.floor.rotation.set(-Math.PI / 2, 0, 0);
+
+        this.scene.add(this.floor);
 
     }
 
@@ -110,6 +131,9 @@ export default class PreLoader {
             }
         })
 
+        this.scene.background = null;
+        this.scene.environment = null;
+        this.scene.remove(this.floor);
         this.scene.remove(this.text);
         this.scene.remove(this.sphere);
         this.scene.remove(this.pointLight);

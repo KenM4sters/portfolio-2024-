@@ -8,6 +8,7 @@ import World from './World/World.js'
 import Resources from './Utils/Resources.js'
 import sources from './sources.js'
 import Debug from './Utils/Debug.js'
+import viewListener from './Utils/viewListener.js'
 
 let instance = null
 
@@ -34,6 +35,7 @@ export default class Experience
         this.time = new Time();
         this.scene = new THREE.Scene();
         this.resources = new Resources(sources);
+        this.viewListener = new viewListener();
         this.camera = new Camera();
         this.renderer = new Renderer();
         this.world = new World();
@@ -58,6 +60,7 @@ export default class Experience
     {
         this.camera.resize();
         this.renderer.resize();
+        this.world.resize();
     }
 
     update()

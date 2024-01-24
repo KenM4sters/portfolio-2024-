@@ -25,6 +25,7 @@ export default class Resources extends EventEmitter {
         this.loaders.gltfLoader = new GLTFLoader();
         this.loaders.textureLoader = new THREE.TextureLoader();
         this.loaders.cubeTextureLoader = new THREE.CubeTextureLoader();
+        this.loaders.RGBEloader = new RGBELoader();
 
     }
 
@@ -35,6 +36,15 @@ export default class Resources extends EventEmitter {
             if(source.type === 'gltfModel') {
                 this.loaders.gltfLoader.load(
                     source.path, (file) => {
+                        this.sourceLoaded(source, file);
+                    }
+                )
+            }
+
+            if(source.type === 'equirectangular') {
+                this.loaders.RGBEloader.load(
+                    source.path, (file) => {
+                        file.mapping = THREE.EquirectangularReflectionMapping
                         this.sourceLoaded(source, file);
                     }
                 )

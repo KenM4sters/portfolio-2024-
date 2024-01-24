@@ -1,5 +1,5 @@
 //fragment Shader
-uniform sampler2D uCubePositions;//DATA Texture containing original positions
+uniform sampler2D uCubePositions;
 uniform sampler2D uSpherePositions;
 uniform float uTime;
 varying vec2 vUv;

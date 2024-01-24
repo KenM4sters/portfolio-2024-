@@ -11,7 +11,7 @@ export default class Page extends Renderer {
         this.resources = this.experience.resources;
         this.time = this.experience.time;
         this.camera = this.experience.camera.instance;
-        this.camera.position.set(0, 10, 50);
+        this.camera.position.set(0, -10, 50);
         this.sizes = this.experience.sizes;
         this.width = 128;
         this.height = 128;
@@ -26,29 +26,34 @@ export default class Page extends Renderer {
     }
 
     setEnvironment() {
-        console.log(this.resources.items['rockTextureMap']);
 
         var floor = new THREE.Mesh(
-            new THREE.PlaneGeometry(200, 200, 1000, 1000),
+            new THREE.PlaneGeometry(1000, 1000, 1000, 1000),
             new THREE.MeshPhysicalMaterial()
         )
 
-        var pointLight = new THREE.PointLight(0xffffff, 1000);
+        var pointLight = new THREE.PointLight(0xffffff, 1);
         pointLight.position.set(0, 10, 0);
         this.scene.add(pointLight);
 
-        var ambientLight = new THREE.AmbientLight(0xffffff, 100);
+        var ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
         this.scene.add(ambientLight);
         
         //Textures
-        floor.material.map = this.resources.items['rockTextureMap'];
-        floor.material.normalMap = this.resources.items['rockNormalMap'];
-        floor.material.aoMap = this.resources.items['rockAmbientOcclusionMap'];
-        floor.material.displacementMap = this.resources.items['rockDisplacementMap'];
+        // floor.material.map = this.resources.items['marbleTextureMap'];
+        // floor.material.normalMap = this.resources.items['marbleNormalMap'];
+        // // floor.material.aoMap = this.resources.items['marbleAmbientOcclusionMap'];
+        // floor.material.roughnessMap = this.resources.items['marbleRoughnessMap'];
+        // floor.material.displacementMap = this.resources.items['marbleDisplacementMap'];
+
+        floor.material.roughness = 0.0;
+        floor.material.transmission = 1.0;
+        floor.material.ior = 1.3;
+        floor.material.thickness = 0.8;
         
-        floor.position.set(0, -15, 0);
-        floor.rotation.set(10 * 180/Math.PI, 0, 0);
-        this.scene.add(floor)
+        floor.position.set(0, -20, 0);
+        floor.rotation.set(-Math.PI / 2, 0, 0);
+        // this.scene.add(floor)
     }
 
 
@@ -252,10 +257,7 @@ export default class Page extends Renderer {
     
     }
 
-    resize() {
-        // this.FBO.resize(this.sizes.width, this.sizes.height);
-        // this.renderShader.uniforms.uPixelRatio.value = Math.min(window.devicePixelRatio, 2)
-    }
+    resize() { return }
 
     update() {
         const elapsedTime = this.time.elapsed * 0.0001;
