@@ -9,6 +9,7 @@ export default class Game extends AbstractView {
 
     async getHtml() {
         return `
+            <a href="/3DGameEngine" class="view-next-project" data-link> View next </a>
             <div class="unique-project-wrapper">
                 <h1 class="unique-project-header"> ${this.title} </h1>
                 <div class="unique-project-info-wrapper">
@@ -52,20 +53,15 @@ export default class Game extends AbstractView {
                 </div>
             </div>
             <div class="unique-project-images-wrapper">
-                <div class="unique-project-images-grid">
-                    <figure class="gallery__item gallery__item--1">
-                        <img src="static/images/ken-masters.jpg" class="gallery__img" alt="Image 1">
-                    </figure>
-                    <figure class="gallery__item gallery__item--2">
-                        <img src="static/images/ken-masters.jpg" class="gallery__img" alt="Image 2">
-                    </figure>
-                    <figure class="gallery__item gallery__item--3">
-                        <img src="static/images/ken-masters.jpg" class="gallery__img" alt="Image 3">
-                    </figure>
-                    <figure class="gallery__item gallery__item--4">
-                        <img src="static/images/ken-masters.jpg" class="gallery__img" alt="Image 4">
-                    </figure>
-                </div>
+                <div class="images-container"> 
+                    <div class="large-image-wrapper">
+                        <video muted autoplay src="static/images/game_demo.mp4" class="large-image" alt="game-demo" /> 
+                    </div>
+                    <div class="small-image-wrapper">
+                        <img src="static/images/ken-masters.jpg" class="small-image" alt="game-demo" /> 
+                        <img src="static/images/ken-masters.jpg" class="small-image" alt="game-demo" /> 
+                    </div> 
+                </div
             </div>
         `
     }

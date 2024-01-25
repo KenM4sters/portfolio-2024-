@@ -9,8 +9,9 @@ export default class PrimeNumbersVisualised extends AbstractView {
 
     async getHtml() {
         return `
+            <a href="/RestAPI" class="view-next-project" data-link> View next </a>
             <div class="unique-project-wrapper">
-                <h1 class="unique-project-header"> ${this.title} </h1>
+                <h1 class="unique-project-header" style="font-size: calc(0.20rem + 4vw)"> ${this.title} </h1>
                 <div class="unique-project-info-wrapper">
                     <div class="unique-project-info">
                         <div class="unique-project-details">
@@ -51,6 +52,17 @@ export default class PrimeNumbersVisualised extends AbstractView {
                     </div>
                 </div>
             </div>
+            <div class="unique-project-images-wrapper">
+            <div class="images-container"> 
+                <div class="large-image-wrapper">
+                    <img src="static/images/japan.jpg" class="large-image" alt="game-demo" /> 
+                </div>
+                <div class="small-image-wrapper">
+                    <img src="static/images/japan.jpg" class="small-image" alt="game-demo" /> 
+                    <img src="static/images/japan.jpg" class="small-image" alt="game-demo" /> 
+                </div> 
+            </div
+        </div>
         `
     }
 }

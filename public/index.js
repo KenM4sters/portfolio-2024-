@@ -11,8 +11,9 @@ import FBOParticles from './views/Projects/FBOParticles.js'
 
 import Experience from './Experience/Experience.js'
 import EventEmitter from './Experience/Utils/EventEmitter.js';
-import { CompressedCubeTexture } from 'three';
 
+
+// Singleton (not necessary)
 let instance = null;
 
 export default class Router extends EventEmitter {
@@ -53,7 +54,7 @@ export default class Router extends EventEmitter {
                     // Callback function to tell threeJS camera to rotate
                     if(this.match.route.path === '/')
                         this.trigger('viewingHome');
-                    else if(this.match.route.path === '/about' || this.match.route.path === '/projects')
+                    else if(this.match.route.path === '/about' || this.match.route.path === '/projects' || this.match.route.group === 'project')
                         this.trigger('viewingAboutOrProjects');;
                 }
 
@@ -145,7 +146,7 @@ export default class Router extends EventEmitter {
         // Finding the correct route for the 'page' that is currently in view
         this.match = this.potentialMatches.find(potentialMatch => potentialMatch.isMatch)
     
-        // Allowing scrolling on projects pages to see images
+        // Allowing scrolling on projects pages to see the images
         if(this.match.route.group === 'project') {
             document.body.style.overflow = 'visible';
         }
@@ -186,6 +187,7 @@ export default class Router extends EventEmitter {
     };
 }
 
+// Instantiate Router first
 const router = new Router();
 
 // Instantiate threeJS experience

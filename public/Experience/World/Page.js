@@ -257,7 +257,9 @@ export default class Page extends Renderer {
     
     }
 
-    resize() { return }
+    resize() { 
+        this.RenderTargetTexture1.setSize(this.sizes.width, this.sizes.height);
+    }
 
     update() {
         const elapsedTime = this.time.elapsed * 0.0001;
@@ -274,8 +276,7 @@ export default class Page extends Renderer {
         this.instance.render(this.fboScene, this.fboOrthoCamera);
         this.instance.setRenderTarget(null);
 
-        // Decide whether to use post-processing or not by switching this.usePostProcess to false
-
+        // Decide whether to use post-processing or not by switching this.usePostProcess to false/true
         if(this.usePostprocess)
             this.postProcess.composer.render(this.scene, this.camera);
         else

@@ -48,12 +48,10 @@ export default class Experience
         })
 
         // Time tick event
-        this.resources.on('ready', () => {
-                this.time.on('tick', () =>
-                {
-                    this.update();
-                })
-            })
+        this.time.on('tick', () =>
+        {
+            this.update();
+        })
     }
 
     resize()

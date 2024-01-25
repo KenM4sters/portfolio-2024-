@@ -35,7 +35,12 @@ export default class World
         })
     }
 
-    resize() { return }
+    resize() {
+        if(this.page !== undefined) 
+            this.page.resize();
+        else
+            return;
+    }
 
     update() {
         if(this.page !== undefined)

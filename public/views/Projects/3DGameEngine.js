@@ -9,6 +9,7 @@ export default class GameEngine extends AbstractView {
 
     async getHtml() {
         return `
+            <a href="/FBOParticles" class="view-next-project" data-link> View next </a>
             <div class="unique-project-wrapper">
                 <h1 class="unique-project-header"> ${this.title} </h1>
                 <div class="unique-project-info-wrapper">
@@ -28,7 +29,7 @@ export default class GameEngine extends AbstractView {
                             </div>
                             <div class="unique-project-details-item">  
                                 <h1 class="unique-project-details-item-header"> Code </h1>
-                                <p class="unique-project-details-item-description"> [details...] </p>
+                                <a href="https://github.com/KenM4sters/game-engine-vulkan" target="_blank" class="unique-project-details-item-description"> View code here </a>
                             </div>
                         </div>
                         <div class="unique-project-summary">
@@ -51,6 +52,17 @@ export default class GameEngine extends AbstractView {
                     </div>
                 </div>
             </div>
+            <div class="unique-project-images-wrapper">
+            <div class="images-container"> 
+                <div class="large-image-wrapper">
+                    <video muted autoplay src="static/images/engine_mkvi_demo.mov" class="large-image" alt="game-demo" /> 
+                </div>
+                <div class="small-image-wrapper">
+                    <img src="static/images/vulkan-engine-lighting.png" class="small-image" alt="game-demo" /> 
+                    <img src="static/images/vulkan-engine-particles.png" class="small-image" alt="game-demo" /> 
+                </div> 
+            </div
+        </div>
         `
     }
 }
