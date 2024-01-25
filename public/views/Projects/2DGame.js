@@ -58,8 +58,8 @@ export default class Game extends AbstractView {
                         <video muted autoplay src="static/images/game_demo.mp4" class="large-image" alt="game-demo" /> 
                     </div>
                     <div class="small-image-wrapper">
-                        <img src="static/images/ken-masters.jpg" class="small-image" alt="game-demo" /> 
-                        <img src="static/images/ken-masters.jpg" class="small-image" alt="game-demo" /> 
+                        <img src="static/images/japan.jpg" class="small-image" alt="game-demo" /> 
+                        <img src="static/images/japan.jpg" class="small-image" alt="game-demo" /> 
                     </div> 
                 </div
             </div>

@@ -583,9 +583,9 @@ body
 .preloader-btn {
     cursor: pointer;
     padding: 6px;
-    color: #3df2f5;
+    color: #ffffff;
     background-color: rgba(0, 0, 0, 0);
-    border: #3df2f5 solid 2px;
+    border: #ffffff solid 2px;
     text-decoration: none;
     border-radius: 4px;
     transition: all;
@@ -593,8 +593,9 @@ body
 }
 
 .preloader-btn:hover {
-    background: #3df2f5;
-    color: black;
+    background: #00ffd5;
+    border: #00ffd5 solid 2px;
+    color: rgb(255, 255, 255);
     transform: scale(0.95);
 }
 
