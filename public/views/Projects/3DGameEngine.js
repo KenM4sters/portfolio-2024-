@@ -42,7 +42,7 @@ export default class GameEngine extends AbstractView {
                             </p>                            
                             
                             <p class="unique-project-summary-details">
-                                At this moment in time, I plan on gradually transforming the engine into some kind of 3D raytracing experiment (something like a basic aim trainer), as I continue to develop my skills in less verbose APIs, such as Opengl and WebGL.
+                                At this moment in time, I plan on gradually transforming the engine into some kind of 3D raytracing experiment (something like a basic aim trainer), as I continue to develop my skills in less verbose APIs, such as OpenGL and WebGL.
                             </p>
 
                             <p class="unique-project-summary-details">  

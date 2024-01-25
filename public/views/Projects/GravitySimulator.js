@@ -34,7 +34,7 @@ export default class GravitySimulator extends AbstractView {
                         </div>
                         <div class="unique-project-summary">
                             <p class="unique-project-summary-details">  
-                                Using threeJS to produce visual representations of mathematical concepts and physical phenomena is my absolute favourite way to use this API. While largely simplifying the graphics pipeline for you in comparison to other APIs like WebGL, OpenGl and Vulkan, threeJS allows you to focus your attention entirely on developing immersive experiences that can be both appealing and educational.
+                                Using threeJS to produce visual representations of mathematical concepts and physical phenomena is my absolute favourite way to use this library. Through largely simplifying the graphics pipeline in comparison to native WebGL, threeJS allows you to focus your attention entirely on developing immersive experiences that can be both appealing and educational.
                             </p>
 
                             <p class="unique-project-summary-details">  
@@ -42,7 +42,7 @@ export default class GravitySimulator extends AbstractView {
                             </p>                            
                             
                             <p class="unique-project-summary-details">  
-                                This project is one that I’m really keen on continuing to develop over the future since three’s so much that can be done to make everything a bit more immersive, such as a debug GUI, lines to represent the direction of the particles acceleration, visual representations of their angles relative to (0, 0) etc…
+                                This project is one that I’m really keen on continuing to develop over the future since there's so much that can be done to make everything a bit more immersive, such as a debug GUI, lines to represent the direction of the particles acceleration, visual representations of their angles relative to (0, 0) etc…
                             </p>
 
                             <p class="unique-project-summary-details">  
