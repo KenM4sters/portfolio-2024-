@@ -54,6 +54,7 @@ export default class About extends AbstractView {
                                 <li class="skills-item"> Linux </li>
                                 <li class="skills-item"> Blender </li>
                                 <li class="skills-item"> Docker </li>
+                                <li class="skills-item"> Google Cloud </li>
                             </ul>
                         </div>
                     </div>
