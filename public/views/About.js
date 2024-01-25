@@ -19,19 +19,18 @@ export default class About extends AbstractView {
                     exploring the fields of computer graphics and <strong class="text-gray-300">machine learning</strong>.
                 </p>
                 <p class="about-content about-para">
-                    
-                    My name is <strong >Samuel Brookman</strong>, and I'm an aspiring software developer  
-                    looking to implement my skills into the real world.
-                    I have a passion for <strong class="text-gray-300">low level programming</strong> in <strong class="text-gray-300">C++</strong> and enjoy
-                    exploring the fields of computer graphics and <strong class="text-gray-300">machine learning</strong>.
+                    I have experience in several different fields of programming, with my most recent endeavours involving
+                    the exploration of the threeJS library that wraps around the WebGL API to simplify 3D rendering to the web.
                 </p>
                 <p class="about-content about-para">
-                    
-                    My name is <strong >Samuel Brookman</strong>, and I'm an aspiring software developer  
-                    looking to implement my skills into the real world.
-                    I have a passion for <strong class="text-gray-300">low level programming</strong> in <strong class="text-gray-300">C++</strong> and enjoy
-                    exploring the fields of computer graphics and <strong class="text-gray-300">machine learning</strong>.
+                    Looking forward, my priorities are clear - to surround myself with talented
+                    developers/engineers from whom to learn not only how to write professional-grade
+                    programs themselves, but how to write them efficiently and idiomatically.
                 </p>
+                <div class=" about-content contact-icons-wrapper">
+                    <a class="icon" href="https://github.com/KenM4sters?tab=repositories" target="_blank"><i class="fa-brands fa-square-github fa-2xl" style="color: #002e7a;"></i></a>
+                    <a class="icon" href="mailto:sam.brookman414@hotmail.com"><i class="fa-solid fa-envelope fa-2xl" style="color: #63E6BE;"></i></a>
+                </div>
             </div>
             <div class="skills-wrapper">
                 <div class="skills-box">
