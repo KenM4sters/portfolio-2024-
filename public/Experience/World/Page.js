@@ -27,11 +27,6 @@ export default class Page extends Renderer {
 
     setEnvironment() {
 
-        var floor = new THREE.Mesh(
-            new THREE.PlaneGeometry(1000, 1000, 1000, 1000),
-            new THREE.MeshPhysicalMaterial()
-        )
-
         var pointLight = new THREE.PointLight(0xffffff, 1);
         pointLight.position.set(0, 10, 0);
         this.scene.add(pointLight);
@@ -39,21 +34,7 @@ export default class Page extends Renderer {
         var ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
         this.scene.add(ambientLight);
         
-        //Textures
-        // floor.material.map = this.resources.items['marbleTextureMap'];
-        // floor.material.normalMap = this.resources.items['marbleNormalMap'];
-        // // floor.material.aoMap = this.resources.items['marbleAmbientOcclusionMap'];
-        // floor.material.roughnessMap = this.resources.items['marbleRoughnessMap'];
-        // floor.material.displacementMap = this.resources.items['marbleDisplacementMap'];
 
-        floor.material.roughness = 0.0;
-        floor.material.transmission = 1.0;
-        floor.material.ior = 1.3;
-        floor.material.thickness = 0.8;
-        
-        floor.position.set(0, -20, 0);
-        floor.rotation.set(-Math.PI / 2, 0, 0);
-        // this.scene.add(floor)
     }
 
 
@@ -63,11 +44,12 @@ export default class Page extends Renderer {
         function getRandomData(count, size ){
             var data = new Float32Array(count * 4)
             for(let i = 0; i < count * 4; i++) {
-                data[i + 0] = (Math.random() * 2 - 1) * size;
-                data[i + 1] = (Math.random() * 2 - 1) * size;
-                data[i + 2] = (Math.random() * 2 - 1) * size;
-                data[i + 0] = 1.0;
+                data[i + 0] = (Math.random() * 2 - 1) * size * 0.5;
+                data[i + 1] = (Math.random() * 2 - 1) * size * 0.5;
+                data[i + 2] = (Math.random() * 2 - 1) * size * 0.5;
+                data[i + 3] = 1.0;
             }
+            console.log(data);
 
             return data;
         }
@@ -190,7 +172,6 @@ export default class Page extends Renderer {
                 gl_FragColor = vec4(r, g, b, 1.0);
             }
             
-
             `
         })
 

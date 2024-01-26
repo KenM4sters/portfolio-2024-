@@ -6,7 +6,6 @@ import GameEngine from './views/Projects/3DGameEngine.js'
 import GravitySimulator from './views/Projects/GravitySimulator.js'
 import PrimeNumbersVisualised from './views/Projects/PrimeNumbersVisualised.js'
 import RestAPI from './views/Projects/RestAPI.js'
-import BlogWebsite from './views/Projects/BlogWebsite.js'
 import FBOParticles from './views/Projects/FBOParticles.js'
 
 import Experience from './Experience/Experience.js'
@@ -121,12 +120,6 @@ export default class Router extends EventEmitter {
     
             },
             {
-                path: "/BlogWebsite",
-                view: new BlogWebsite(),
-                group: 'project'
-    
-            },
-            {
                 path: "/FBOParticles",
                 view: new FBOParticles(),
                 group: 'project'
@@ -134,6 +127,9 @@ export default class Router extends EventEmitter {
             },
     
         ];
+
+        // Reset title
+        document.title = 'samuel-brookman';
     
         // Test each route 
         this.potentialMatches = this.routes.map(route => {

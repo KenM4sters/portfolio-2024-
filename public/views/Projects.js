@@ -17,7 +17,6 @@ export default class Projects extends AbstractView {
                 <span class="projects-item-wrapper"><a href="/GravitySimulator" class="projects-item" data-link> Gravity Simulator </a></span>
                 <span class="projects-item-wrapper"><a href="/PrimeNumbersVisualised" class="projects-item" data-link> Pime Numbers Visualised </a></span>
                 <span class="projects-item-wrapper"><a href="/RestAPI" class="projects-item" data-link> Rest API </a></span>
-                <span class="projects-item-wrapper"><a href="/BlogWebsite" class="projects-item" data-link> Blog Website </a></span>
                 <span class="projects-item-wrapper"><a href="/FBOParticles" class="projects-item" data-link> FBO Particles </a></span>
             </div>
         </div>

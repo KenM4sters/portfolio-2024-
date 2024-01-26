@@ -424,7 +424,7 @@ body
 
 .view-next-project:hover {
     background-color: #ffffff;
-    color: black;
+    color: rgb(0, 0, 0);
     transform: scale(1.5);
 }
 
@@ -512,7 +512,7 @@ body
     width: 100vw;
     height: 70vh;
     margin-top: 10vh;
-    margin-bottom: 10vh;
+    padding-bottom: 20vh;
 }
 
 .images-container {
