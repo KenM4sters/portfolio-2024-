@@ -51,17 +51,7 @@ export default class GravitySimulator extends AbstractView {
                     </div>
                 </div>
             </div>
-            <div class="unique-project-images-wrapper">
-            <div class="images-container"> 
-                <div class="large-image-wrapper">
-                    <img src="static/images/japan.jpg" class="large-image" alt="game-demo" /> 
-                </div>
-                <div class="small-image-wrapper">
-                    <img src="static/images/japan.jpg" class="small-image" alt="game-demo" /> 
-                    <img src="static/images/japan.jpg" class="small-image" alt="game-demo" /> 
-                </div> 
-            </div
-        </div>
+
         `
     }
 }

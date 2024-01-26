@@ -7,6 +7,7 @@ import GravitySimulator from './views/Projects/GravitySimulator.js'
 import PrimeNumbersVisualised from './views/Projects/PrimeNumbersVisualised.js'
 import RestAPI from './views/Projects/RestAPI.js'
 import FBOParticles from './views/Projects/FBOParticles.js'
+import Portfolio from './views/Projects/Portfolio.js';
 
 import Experience from './Experience/Experience.js'
 import EventEmitter from './Experience/Utils/EventEmitter.js';
@@ -122,6 +123,12 @@ export default class Router extends EventEmitter {
             {
                 path: "/FBOParticles",
                 view: new FBOParticles(),
+                group: 'project'
+    
+            },
+            {
+                path: "/Portfolio",
+                view: new Portfolio(),
                 group: 'project'
     
             },

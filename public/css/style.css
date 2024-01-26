@@ -526,11 +526,14 @@ body
 }
 
 .large-image-wrapper {
+    height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
 .small-image-wrapper {
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -538,9 +541,9 @@ body
 }
 
 .large-image {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
+    height: calc(0.5rem + 60vh);
+    width: calc(70vw);
+    border-radius: 50px;
     transition: all;
     transition-duration: 0.7s;
 }
@@ -550,8 +553,8 @@ body
 }
 
 .small-image {
-    width: 100%;
-    height: 50%;
+    height: calc(0.5rem + 40vh);
+    width: calc(40vw);
     border-radius: 10px;
     transition: all;
     transition-duration: 0.7s;

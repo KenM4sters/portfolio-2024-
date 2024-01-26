@@ -52,17 +52,6 @@ export default class GameEngine extends AbstractView {
                     </div>
                 </div>
             </div>
-            <div class="unique-project-images-wrapper">
-            <div class="images-container"> 
-                <div class="large-image-wrapper">
-                    <video muted autoplay src="static/images/engine_mkvi_demo.mov" class="large-image" alt="game-demo" /> 
-                </div>
-                <div class="small-image-wrapper">
-                    <img src="static/images/vulkan-engine-lighting.png" class="small-image" alt="game-demo" /> 
-                    <img src="static/images/vulkan-engine-particles.png" class="small-image" alt="game-demo" /> 
-                </div> 
-            </div
-        </div>
         `
     }
 }

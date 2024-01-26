@@ -52,17 +52,7 @@ export default class Game extends AbstractView {
                     </div>
                 </div>
             </div>
-            <div class="unique-project-images-wrapper">
-                <div class="images-container"> 
-                    <div class="large-image-wrapper">
-                        <video muted autoplay src="static/images/game_demo.mp4" class="large-image" alt="game-demo" /> 
-                    </div>
-                    <div class="small-image-wrapper">
-                        <img src="static/images/japan.jpg" class="small-image" alt="game-demo" /> 
-                        <img src="static/images/japan.jpg" class="small-image" alt="game-demo" /> 
-                    </div> 
-                </div
-            </div>
+            
         `
     }
 }

@@ -18,6 +18,7 @@ export default class Projects extends AbstractView {
                 <span class="projects-item-wrapper"><a href="/PrimeNumbersVisualised" class="projects-item" data-link> Pime Numbers Visualised </a></span>
                 <span class="projects-item-wrapper"><a href="/RestAPI" class="projects-item" data-link> Rest API </a></span>
                 <span class="projects-item-wrapper"><a href="/FBOParticles" class="projects-item" data-link> FBO Particles </a></span>
+                <span class="projects-item-wrapper"><a href="/Portfolio" class="projects-item" data-link> My Portfolio </a></span>
             </div>
         </div>
         `
