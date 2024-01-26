@@ -49,7 +49,6 @@ export default class Page extends Renderer {
                 data[i + 2] = (Math.random() * 2 - 1) * size * 0.5;
                 data[i + 3] = 1.0;
             }
-            console.log(data);
 
             return data;
         }
