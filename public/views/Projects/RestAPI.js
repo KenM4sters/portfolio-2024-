@@ -9,6 +9,7 @@ export default class RestAPI extends AbstractView {
 
     async getHtml() {
         return `
+            <a href="/FBOParticles" class="view-next-project" data-link> View next </a>
             <div class="unique-project-wrapper">
                 <h1 class="unique-project-header"> ${this.title} </h1>
                 <div class="unique-project-info-wrapper">

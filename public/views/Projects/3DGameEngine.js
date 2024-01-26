@@ -9,7 +9,7 @@ export default class GameEngine extends AbstractView {
 
     async getHtml() {
         return `
-            <a href="/FBOParticles" class="view-next-project" data-link> View next </a>
+            <a href="/GravitySimulator" class="view-next-project" data-link> View next </a>
             <div class="unique-project-wrapper">
                 <h1 class="unique-project-header"> ${this.title} </h1>
                 <div class="unique-project-info-wrapper">

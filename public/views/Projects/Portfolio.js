@@ -16,7 +16,7 @@ export default class Portfolio extends AbstractView {
                         <div class="unique-project-details">
                             <div class="unique-project-details-item">  
                                 <h1 class="unique-project-details-item-header"> Date </h1>
-                                <p class="unique-project-details-item-description"> 20/11/23 </p>
+                                <p class="unique-project-details-item-description"> 18/01/24 </p>
                             </div>
                             <div class="unique-project-details-item">  
                                 <h1 class="unique-project-details-item-header"> Status </h1>
@@ -28,7 +28,7 @@ export default class Portfolio extends AbstractView {
                             </div>
                             <div class="unique-project-details-item">  
                                 <h1 class="unique-project-details-item-header"> Code </h1>
-                                <a href="https://github.com/KenM4sters/actix-web-postgresql-api" target="_blank" class="unique-project-details-item-description"> View code here </a>
+                                <a href="https://github.com/KenM4sters/portfolio-2024-" target="_blank" class="unique-project-details-item-description"> View code here </a>
                             </div>
                         </div>
                         <div class="unique-project-summary">
