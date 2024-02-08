@@ -5,7 +5,6 @@ import Game from './views/Projects/2DGame.js'
 import GameEngine from './views/Projects/3DGameEngine.js'
 import GravitySimulator from './views/Projects/GravitySimulator.js'
 import PrimeNumbersVisualised from './views/Projects/PrimeNumbersVisualised.js'
-import RestAPI from './views/Projects/RestAPI.js'
 import FBOParticles from './views/Projects/FBOParticles.js'
 import Portfolio from './views/Projects/Portfolio.js';
 import JavaReactApp from './views/Projects/JavaReactApp.js';
@@ -115,12 +114,6 @@ export default class Router extends EventEmitter {
             {
                 path: "/PrimeNumbersVisualised",
                 view: new PrimeNumbersVisualised(),
-                group: 'project'
-    
-            },
-            {
-                path: "/RestAPI",
-                view: new RestAPI(),
                 group: 'project'
     
             },

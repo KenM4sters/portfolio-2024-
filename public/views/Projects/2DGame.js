@@ -49,8 +49,11 @@ export default class Game extends AbstractView {
                                 </p>
                             </div>
                         </div>
-                        <div class="unique-project-summary">
-                            <img class="project-image" src="static/images/opengl-game-still.png" alt="${this.title}">
+                        <div class="project-video-wrapper">
+                            <video class="project-video" muted>
+                                <source src="static/videos/opengl-game-demo.mp4" type="video/mp4">
+                            </video>
+                            <span class="play-video"> PLAY </span>
                         </div>
                     </div>
                 </div>

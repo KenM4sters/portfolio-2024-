@@ -10,7 +10,7 @@ export default class FBOParticles extends AbstractView {
 
     async getHtml() {
         return `
-        <a href="/RestAPI" class="view-next-project" data-link> View next </a>
+        <a href="/" class="view-next-project" data-link> End </a>
         <div class="unique-project-wrapper">
             <h1 class="unique-project-header"> ${this.title} </h1>
             <div class="unique-project-info-wrapper">
@@ -49,8 +49,11 @@ export default class FBOParticles extends AbstractView {
                             </p>
                         </div>
                     </div>
-                    <div class="unique-project-summary">
-                        <img class="project-image" src="static/images/fbo-particles-still.png" alt="${this.title}">
+                    <div class="project-video-wrapper">
+                        <video class="project-video" muted>
+                            <source src="static/videos/fbo-particles-demo.mp4" type="video/mp4">
+                        </video>
+                        <span class="play-video"> PLAY </span>
                     </div>
                 </div>
             </div>

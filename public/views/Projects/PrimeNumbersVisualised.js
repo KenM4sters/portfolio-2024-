@@ -49,8 +49,11 @@ export default class PrimeNumbersVisualised extends AbstractView {
                             </p>
                         </div>
                     </div>
-                    <div class="unique-project-summary">
-                        <img class="project-image" src="static/images/prime-numbers-still.png" alt="${this.title}">
+                    <div class="project-video-wrapper">
+                        <video class="project-video" muted>
+                            <source src="static/videos/prime-numbers-demo.mp4" type="video/mp4">
+                        </video>
+                        <span class="play-video"> PLAY </span>
                     </div>
                 </div>
             </div>
