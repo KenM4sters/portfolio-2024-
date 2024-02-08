@@ -15,8 +15,8 @@ export default class About extends AbstractView {
                 <p class="about-content about-para">
                     My name is <strong >Samuel Brookman</strong>, and I'm an aspiring software developer  
                     looking to implement my skills into the real world.
-                    I have a passion for <strong class="text-gray-300">low level programming</strong> in <strong class="text-gray-300">C++</strong> and enjoy
-                    exploring the fields of computer graphics and <strong class="text-gray-300">machine learning</strong>.
+                    I have a passion for <strong class="text-gray-300">low level programming</strong> in <strong class="text-gray-300">C++</strong>, as well
+                    as exploring the world of full-stack web development in frameworks/libraries like <strong>Spring(Java)</strong> and <strong>React(JS)</strong>.
                 </p>
                 <p class="about-content about-para">
                     I have experience in several different fields of programming, with my most recent endeavours involving
@@ -33,25 +33,22 @@ export default class About extends AbstractView {
                 </div>
             </div>
             <div class="skills-wrapper">
+                <h1 class="skills-heading">Skills</h1>
                 <div class="skills-box">
                     <div class="skills-info-wrapper">
-                        <h1 class="skills-heading">Skills</h1>
                         <div class="skills-list-wrapper">
                             <ul class="skills-list">
                                 <li class="skills-item"> C++ </li>
+                                <li class="skills-item"> Java </li>
                                 <li class="skills-item"> C </li>
-                                <li class="skills-item"> Python </li>
                                 <li class="skills-item"> Typescript </li>
                                 <li class="skills-item"> Javascript </li>
-                                <li class="skills-item"> Arm64 ASM </li>
-                                <li class="skills-item"> Rust </li>
-                                <li class="skills-item"> Vulkan </li>
+                                <li class="skills-item"> Spring </li>
+                                <li class="skills-item"> React </li>
+                                <li class="skills-item"> PostgreSQL </li>
                                 <li class="skills-item"> OpenGL </li>
-                                <li class="skills-item"> Git </li>
                                 <li class="skills-item"> threeJS </li>
-                                <li class="skills-item"> PyTorch </li>
                                 <li class="skills-item"> Linux </li>
-                                <li class="skills-item"> Blender </li>
                                 <li class="skills-item"> Docker </li>
                                 <li class="skills-item"> Google Cloud </li>
                             </ul>

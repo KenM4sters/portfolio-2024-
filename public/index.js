@@ -8,6 +8,8 @@ import PrimeNumbersVisualised from './views/Projects/PrimeNumbersVisualised.js'
 import RestAPI from './views/Projects/RestAPI.js'
 import FBOParticles from './views/Projects/FBOParticles.js'
 import Portfolio from './views/Projects/Portfolio.js';
+import JavaReactApp from './views/Projects/JavaReactApp.js';
+import SnakeGame from './views/Projects/SnakeGame.js';
 
 import Experience from './Experience/Experience.js'
 import EventEmitter from './Experience/Utils/EventEmitter.js';
@@ -18,14 +20,16 @@ let instance = null;
 
 export default class Router extends EventEmitter {
     constructor() {
-
+        // Setting singleton
         if(instance)
             return instance;
 
         super();
         instance = this;
 
+        // Boolean to keep track of whether the user has clicked to enter or not
         window.inExperience = false;
+        // Initally set route to null
         this.match = null;
         this.view = null;
 
@@ -55,10 +59,10 @@ export default class Router extends EventEmitter {
                     if(this.match.route.path === '/')
                         this.trigger('viewingHome');
                     else if(this.match.route.path === '/about' || this.match.route.path === '/projects' || this.match.route.group === 'project')
-                        this.trigger('viewingAboutOrProjects');;
+                        this.trigger('viewingAboutOrProjects');
                 }
-
             })
+
 
             this.router();
         })
@@ -132,6 +136,18 @@ export default class Router extends EventEmitter {
                 group: 'project'
     
             },
+            {
+                path: "/JavaReactApp",
+                view: new JavaReactApp(),
+                group: 'project'
+    
+            },
+            {
+                path: "/SnakeGame",
+                view: new SnakeGame(),
+                group: 'project'
+    
+            },
     
         ];
 
@@ -145,13 +161,13 @@ export default class Router extends EventEmitter {
                 isMatch: location.pathname == route.path
             }
         });
-    
+        
         // Finding the correct route for the 'page' that is currently in view
         this.match = this.potentialMatches.find(potentialMatch => potentialMatch.isMatch)
     
-        // Allowing scrolling on projects pages to see the images
+        // Allowing/Disallowing scrolling on projects pages to see the images - undecided
         if(this.match.route.group === 'project') {
-            document.body.style.overflow = 'visible';
+            document.body.style.overflow = 'hidden';
         }
         else {
             document.body.style.overflow = 'hidden';
@@ -166,7 +182,6 @@ export default class Router extends EventEmitter {
         }
     
         this.view = this.match.route.view;
-    
     
         // Get HTML associated with the current route only if the preload button has been clicked
         if(window.inExperience) {
@@ -183,10 +198,21 @@ export default class Router extends EventEmitter {
                 </div>
             `
         }
-            // Since this function is only called when clicking an element with the data-link tag,
-            // and the only element present with that tag is the enter button on the preloader,
-            // then the user must have clicked it. 
-            window.inExperience = true;
+        // Since this function is only called when clicking an element with the data-link tag,
+        // and the only element present with that tag is the enter button on the preloader,
+        // then the user must have clicked it.
+        this.video = document.querySelector(".project-video");
+        this.playButton = document.querySelector(".play-video"); 
+        window.inExperience = true;
+        if(this.match.route.group == "project" && this.playButton) {
+            this.playButton.addEventListener('click', () => {
+                this.video.play();
+                this.playButton.classList.add("hide");
+                this.video.classList.add("playing");
+                this.video.setAttribute("controls", "controls");
+            })
+        }
+
     };
 }
 
