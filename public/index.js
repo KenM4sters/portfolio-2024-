@@ -9,6 +9,7 @@ import FBOParticles from './views/Projects/FBOParticles.js'
 import Portfolio from './views/Projects/Portfolio.js';
 import JavaReactApp from './views/Projects/JavaReactApp.js';
 import SnakeGame from './views/Projects/SnakeGame.js';
+import BankingApp from './views/Projects/BankingApp.js'
 
 import Experience from './Experience/Experience.js'
 import EventEmitter from './Experience/Utils/EventEmitter.js';
@@ -139,8 +140,12 @@ export default class Router extends EventEmitter {
                 path: "/SnakeGame",
                 view: new SnakeGame(),
                 group: 'project'
-    
             },
+            {
+                path: "/BankingApp",
+                view: new BankingApp(),
+                group: 'project'
+            }
     
         ];
 

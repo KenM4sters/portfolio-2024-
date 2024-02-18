@@ -12,6 +12,7 @@ export default class Projects extends AbstractView {
         <div class="projects-wrapper">
             <h1 class="projects-header">MY WORK</h1>
             <div class="projects-info-wrapper">
+                <span class="projects-item-wrapper"><a href="/BankingApp" class="projects-item" data-link> Banking Web App </a></span>
                 <span class="projects-item-wrapper"><a href="/JavaReactApp" class="projects-item" data-link> Full-Stack Web App </a></span>
                 <span class="projects-item-wrapper"><a href="/3DGameEngine" class="projects-item" data-link> 3D Game Engine </a></span>
                 <span class="projects-item-wrapper"><a href="/SnakeGame" class="projects-item" data-link> Snake Game </a></span>

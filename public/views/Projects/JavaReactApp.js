@@ -3,7 +3,7 @@ import AbstractView from "../AbstractView.js"
 export default class JavaReactApp extends AbstractView {
     constructor() {
         super();
-        this.title = "Java-React-App";
+        this.title = "Video Games App";
         this.date = 2024;
         this.setTitle(this.title);
     }
@@ -47,7 +47,7 @@ export default class JavaReactApp extends AbstractView {
                         </div>
                         <div class="project-video-wrapper">
                             <video class="project-video" muted>
-                                <source src="static/videos/java-react-demo.mp4" type="video/mp4">
+                                <source src="static/videos/game-list-demo.mp4" type="video/mp4">
                             </video>
                             <span class="play-video"> PLAY </span>
                         </div>
