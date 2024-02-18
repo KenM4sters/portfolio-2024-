@@ -47,7 +47,7 @@ export default class JavaReactApp extends AbstractView {
                         </div>
                         <div class="project-video-wrapper">
                             <video class="project-video" muted>
-                                <source src="static/videos/game-list-demo.mp4" type="video/mp4">
+                                <source src="static/videos/games-list-demo.mp4" type="video/mp4">
                             </video>
                             <span class="play-video"> PLAY </span>
                         </div>
