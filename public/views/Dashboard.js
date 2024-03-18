@@ -11,7 +11,7 @@ export default class Dashboard extends AbstractView {
         return `
         <div class="dashboard-wrapper">
             <h1 class="dashboard-content dashboard-heading">WELCOME</h1>
-            <p class="dashboard-content dashboard-para">ASPIRING DEVELOPER</p>
+            <p class="dashboard-content dashboard-para">SOFTWARE ENGINEER</p>
         </div>
         `;
     }

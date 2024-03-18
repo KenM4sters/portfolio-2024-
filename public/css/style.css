@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Genos:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 /*
 
     Animations
@@ -190,13 +190,15 @@ body
 
 .about-wrapper {
     width: 100%;
-    height: 70%;
+    height: 85%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     place-items: center;
-    margin-top: 10vh;
+    margin-top: 5vh;
     gap: 5vh;
+    background-color: rgb(235, 235, 235, 1.0);
+    color: black;
 }
 
 .info-wrapper {
@@ -205,18 +207,20 @@ body
 }
 
 .about-content {
-    color: white;
     margin-left: 5vw;
     padding:  15px
 }
 
 .about-heading {
+    font-family: "Pixelify Sans", sans-serif;
+    text-align: center;
     font-size: calc(0.25rem + 3vw);
     font-weight: 400;
     padding-bottom: 15px;
 }
 
 .about-para {
+    text-align: center;
     font-size: calc(0.20rem + 0.8vw);
 }
 
@@ -263,8 +267,7 @@ body
 
 .skills-box {
     /*https://getcssscan.com/css-box-shadow-examples*/
-    box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 1px 0px inset, rgba(74, 131, 142, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-    background-color: rgba(15, 15, 15, 0.6);
+    background-color: rgba(25, 25, 25, 1.0);
     height: 100%;
     width: 100%;
     border-radius: 10px;
@@ -305,7 +308,7 @@ body
     cursor: default;
     box-shadow: black;
     background: linear-gradient(0deg, rgba(20, 20, 20, 0.8) 70%, rgb(29, 29, 29) 90%) padding-box,
-                linear-gradient(0deg, rgba(20, 20, 20, 0.8) 10%, rgba(30, 190, 234, 0.8) 90%) border-box;
+                linear-gradient(0deg, rgba(20, 20, 20, 0.8) 10%, rgba(255, 146, 4, 0.8) 90%) border-box;
     border-radius: 5px;
     border: 1px solid transparent;
     transition: all;
@@ -313,7 +316,7 @@ body
 }
 
 .skills-item:hover {
-    background: rgba(30, 190, 234, 0.8);
+    background: rgba(255, 119, 0, 0.8);
 }
 
 .skills-heading {

@@ -2,13 +2,13 @@ import Dashboard from './views/Dashboard.js'
 import About from './views/About.js';
 import Projects from './views/Projects.js' 
 import Game from './views/Projects/2DGame.js'
-import GameEngine from './views/Projects/3DGameEngine.js'
+import VulkanEngine from './views/Projects/VulkanEngine.js'
 import GravitySimulator from './views/Projects/GravitySimulator.js'
 import PrimeNumbersVisualised from './views/Projects/PrimeNumbersVisualised.js'
 import FBOParticles from './views/Projects/FBOParticles.js'
 import Portfolio from './views/Projects/Portfolio.js';
 import JavaReactApp from './views/Projects/JavaReactApp.js';
-import SnakeGame from './views/Projects/SnakeGame.js';
+import OpenGLEngine from './views/Projects/OpenGLEngine.js';
 import BankingApp from './views/Projects/BankingApp.js'
 
 import Experience from './Experience/Experience.js'
@@ -101,8 +101,8 @@ export default class Router extends EventEmitter {
     
             },
             {
-                path: "/3DGameEngine",
-                view: new GameEngine(),
+                path: "/VulkanEngine",
+                view: new VulkanEngine(),
                 group: 'project'
     
             },
@@ -137,8 +137,8 @@ export default class Router extends EventEmitter {
     
             },
             {
-                path: "/SnakeGame",
-                view: new SnakeGame(),
+                path: "/OpenGLEngine",
+                view: new OpenGLEngine(),
                 group: 'project'
             },
             {

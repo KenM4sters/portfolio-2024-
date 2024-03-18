@@ -10,7 +10,7 @@ export default class FBOParticles extends AbstractView {
 
     async getHtml() {
         return `
-        <a href="/" class="view-next-project" data-link> End </a>
+        <a href="https://github.com/KenM4sters" target="_blank" class="view-next-project"> SEE ALL </a>
         <div class="unique-project-wrapper">
             <h1 class="unique-project-header"> ${this.title} </h1>
             <div class="unique-project-info-wrapper">

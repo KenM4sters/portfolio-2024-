@@ -10,7 +10,7 @@ export default class JavaReactApp extends AbstractView {
 
     async getHtml() {
         return `
-            <a href="/3DGameEngine" class="view-next-project" data-link> View next </a>
+            <a href="/2DGame" class="view-next-project" data-link> View next </a>
             <div class="unique-project-wrapper">
                 <h1 class="unique-project-header"> ${this.title} </h1>
                 <div class="unique-project-info-wrapper">

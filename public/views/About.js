@@ -29,7 +29,7 @@ export default class About extends AbstractView {
                 </p>
                 <div class=" about-content contact-icons-wrapper">
                     <a class="icon" href="https://github.com/KenM4sters?tab=repositories" target="_blank"><i class="fa-brands fa-square-github fa-2xl" style="color: #002e7a;"></i></a>
-                    <a class="icon" href="mailto:sam.brookman414@hotmail.com"><i class="fa-solid fa-envelope fa-2xl" style="color: #63E6BE;"></i></a>
+                    <a class="icon" href="mailto:sam.brookman414@hotmail.com"><i class="fa-solid fa-envelope fa-2xl" style="color: #fc9d03;"></i></a>
                 </div>
             </div>
             <div class="skills-wrapper">
@@ -39,15 +39,17 @@ export default class About extends AbstractView {
                         <div class="skills-list-wrapper">
                             <ul class="skills-list">
                                 <li class="skills-item"> C++ </li>
-                                <li class="skills-item"> Java </li>
+                                <li class="skills-item"> OpenGL </li>
                                 <li class="skills-item"> C </li>
                                 <li class="skills-item"> Typescript </li>
+                                <li class="skills-item"> Java </li>
                                 <li class="skills-item"> Javascript </li>
                                 <li class="skills-item"> Spring </li>
                                 <li class="skills-item"> React </li>
                                 <li class="skills-item"> PostgreSQL </li>
-                                <li class="skills-item"> OpenGL </li>
                                 <li class="skills-item"> threeJS </li>
+                                <li class="skills-item"> Renderdoc </li>
+                                <li class="skills-item"> Valgrind </li>
                                 <li class="skills-item"> Linux </li>
                                 <li class="skills-item"> Docker </li>
                                 <li class="skills-item"> Google Cloud </li>
