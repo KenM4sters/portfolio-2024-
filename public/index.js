@@ -62,8 +62,6 @@ export default class Router extends EventEmitter {
                         this.trigger('viewingAboutOrProjects');
                 }
             })
-
-
             this.router();
         })
 

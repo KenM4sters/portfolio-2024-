@@ -37,7 +37,7 @@ export default class OpenGLEngine extends AbstractView {
                             <div class="unique-project-details-description">  
                                 <h1 class="unique-project-details-item-header"> Description </h1>
                                 <p class="unique-project-summary-details">  
-                                    A 3D game/graphics engine written in C++ that exposes the OpenGL api. The ambition with this project was to create a sanbbox-style scene involving a variety of different rendering techniques to further solidify my skills in all of C++ programming, applied mathematics and general code structuring.
+                                    A 3D game/graphics engine written in C++ that exposes the OpenGL API. The ambition with this project was to create a sanbbox-style scene involving a variety of different rendering techniques to further solidify my skills in all of C++ programming, applied mathematics and general code structuring.
                                 </p>
 
                                 <p class="unique-project-summary-details">  
@@ -45,7 +45,7 @@ export default class OpenGLEngine extends AbstractView {
                                 </p>                            
 
                                 <p class="unique-project-summary-details">  
-                                    All-in-all, I've undoubtedly deepend my knowledge of everything from semantics, to proper code structure, to using the OpenGL api and more, which is exactly what I set out to do. This project is far from complete as I look to transition it into a purely terrain-focussed exercise, working on more scenery, shadows, water and more...
+                                    All-in-all, I've undoubtedly deepend my knowledge of everything from semantics, to proper code structure, to using the OpenGL API and more, which is exactly what I set out to do. This project is far from complete as I look to transition it into a purely terrain-focussed exercise, working on more scenery, shadows, water and more...
                                 </p>
                             </div>
                         </div>

@@ -3,7 +3,7 @@ import AbstractView from "../AbstractView.js"
 export default class GameEngine extends AbstractView {
     constructor() {
         super();
-        this.title = "3D Game Engine";
+        this.title = "Vulkan Engine";
         this.date = 2023;
         this.setTitle(this.title);
     }
