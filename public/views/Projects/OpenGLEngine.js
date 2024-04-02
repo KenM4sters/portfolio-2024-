@@ -51,7 +51,7 @@ export default class OpenGLEngine extends AbstractView {
                         </div>
                         <div class="project-video-wrapper">
                             <video class="project-video" muted>
-                                <source src="static/videos/opengl-engine-demo.mp4" type="video/mp4">
+                                <source src="static/videos/opengl_engine_demo.mp4" type="video/mp4">
                             </video>
                             <span class="play-video"> PLAY </span>
                         </div>

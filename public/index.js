@@ -5,11 +5,11 @@ import Game from './views/Projects/2DGame.js'
 import VulkanEngine from './views/Projects/VulkanEngine.js'
 import GravitySimulator from './views/Projects/GravitySimulator.js'
 import PrimeNumbersVisualised from './views/Projects/PrimeNumbersVisualised.js'
-import FBOParticles from './views/Projects/FBOParticles.js'
 import Portfolio from './views/Projects/Portfolio.js';
 import JavaReactApp from './views/Projects/JavaReactApp.js';
 import OpenGLEngine from './views/Projects/OpenGLEngine.js';
 import BankingApp from './views/Projects/BankingApp.js'
+import PBRRenderer from './views/Projects/PBRRenderer.js';
 
 import Experience from './Experience/Experience.js'
 import EventEmitter from './Experience/Utils/EventEmitter.js';
@@ -117,12 +117,6 @@ export default class Router extends EventEmitter {
     
             },
             {
-                path: "/FBOParticles",
-                view: new FBOParticles(),
-                group: 'project'
-    
-            },
-            {
                 path: "/Portfolio",
                 view: new Portfolio(),
                 group: 'project'
@@ -142,6 +136,11 @@ export default class Router extends EventEmitter {
             {
                 path: "/BankingApp",
                 view: new BankingApp(),
+                group: 'project'
+            },
+            {
+                path: "/PBRRenderer",
+                view: new PBRRenderer(),
                 group: 'project'
             }
     
