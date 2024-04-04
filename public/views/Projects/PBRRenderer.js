@@ -51,7 +51,7 @@ export default class PBRRenderer extends AbstractView {
                         </div>
                         <div class="project-video-wrapper">
                             <video class="project-video" muted>
-                                <source src="static/videos/pbr_renderer_demo.mp4" type="video/mp4">
+                                <source src="static/videos/PBRDemo.mp4" type="video/mp4">
                             </video>
                             <span class="play-video"> PLAY </span>
                         </div>

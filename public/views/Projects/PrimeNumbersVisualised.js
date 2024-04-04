@@ -10,7 +10,7 @@ export default class PrimeNumbersVisualised extends AbstractView {
 
     async getHtml() {
         return `
-        <a href="/FBOParticles" class="view-next-project" data-link> View next </a>
+        <a href="/" class="view-next-project" data-link> End </a>
         <div class="unique-project-wrapper">
             <h1 class="unique-project-header"> ${this.title} </h1>
             <div class="unique-project-info-wrapper">
