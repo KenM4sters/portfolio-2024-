@@ -10,9 +10,11 @@ import JavaReactApp from './views/Projects/JavaReactApp.js';
 import OpenGLEngine from './views/Projects/OpenGLEngine.js';
 import BankingApp from './views/Projects/BankingApp.js'
 import PBRRenderer from './views/Projects/PBRRenderer.js';
+import Raytracer from './views/Projects/Raytracer.js';
 
 import Experience from './Experience/Experience.js'
 import EventEmitter from './Experience/Utils/EventEmitter.js';
+import { Ray } from 'three';
 
 
 // Singleton (not necessary)
@@ -141,6 +143,11 @@ export default class Router extends EventEmitter {
             {
                 path: "/PBRRenderer",
                 view: new PBRRenderer(),
+                group: 'project'
+            },
+            {
+                path: "/Raytracer",
+                view: new Raytracer(),
                 group: 'project'
             }
     
