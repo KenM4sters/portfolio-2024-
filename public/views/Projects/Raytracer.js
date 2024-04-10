@@ -3,7 +3,7 @@ import AbstractView from "../AbstractView.js"
 export default class Raytracer extends AbstractView {
     constructor() {
         super();
-        this.title = "Raytracer";
+        this.title = "Raytracer (Work in progress)";
         this.date = 2024;
         this.setTitle(this.title);
     }
@@ -49,6 +49,10 @@ export default class Raytracer extends AbstractView {
                             </div>
                         </div>
                         <div class="project-video-wrapper">
+                        <video class="project-video" muted>
+                            <source src="static/videos/raytracer_demo.mp4" type="video/mp4">
+                                </video>
+                            <span class="play-video"> PLAY </span>
                         </div>
                     </div>
                 </div>

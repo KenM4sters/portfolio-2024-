@@ -15,19 +15,20 @@ export default class About extends AbstractView {
                     <h1 class="about-content about-heading">About me</h1>
                 </div>
                 <p class="about-content about-para">
-                    My name is <strong >Samuel Brookman</strong>, and I'm an aspiring software engineer  
-                    looking to implement my skills into the real world.
-                    I have a passion for <strong class="text-gray-300">low level programming</strong> in <strong class="text-gray-300">C++</strong>, as well
-                    as exploring the world of full-stack web development in frameworks/libraries like <strong>Spring(Java)</strong> and <strong>React(JS)</strong>.
+                    My name is Samuel Brookman, and I’m an aspiring professional <strong>Graphics Programmer</strong> with a keen interest in rendering high-fidelity, photo-realistic graphics in <strong>real-time</strong> applications. 
+                    I have extensive experience writing C++ and using graphics APIs such as OpenGL and, on a more amateur level, Vulkan, although I intend to invest a lot more time into learning DirectX/Vulkan in the near future. 
+                    I also enjoy brining high quality graphics rendering to the web with TypeScript and WebGL.
                 </p>
                 <p class="about-content about-para">
-                    I have experience in several different fields of programming, with my most recent endeavours involving
-                    the exploration of the threeJS library that wraps around the WebGL API to simplify 3D rendering to the web.
+                    I was introduced to my very first video game when I was just 4 years old, and I've been captivated by them ever since.
+                    It was only more recently though that I realised that developing them is exactly
+                    what I want to spend the rest of my life doing.
                 </p>
                 <p class="about-content about-para">
                     Looking forward, my priorities are clear - to surround myself with talented
-                    developers/engineers from whom to learn not only how to write professional-grade
-                    programs themselves, but how to write them efficiently and idiomatically.
+                    developers/engineers from whom to learn as much as humanly possible about 
+                    writing professional-grade graphics applications, and to help other people
+                    with a similar vision to me achieve their goals. 
                 </p>
             </div>
         </div>
